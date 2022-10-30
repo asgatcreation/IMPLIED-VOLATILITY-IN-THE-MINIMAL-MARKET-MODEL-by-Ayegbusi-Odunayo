@@ -1,0 +1,2020 @@
+\documentclass[a4 paper, 12pt]{report}
+\usepackage{hyperref}
+\usepackage{apacite}
+\usepackage{amssymb,dsfont,amsthm,amsmath,makeidx,verbatim,latexsym,amsfonts,mathrsfs}
+\usepackage{cancel}
+\usepackage{graphicx}
+\usepackage[none]{hyphenat}
+
+\usepackage[english]{babel}
+\addto{\captionsenglish}{%
+	\renewcommand{\bibname}{REFERENCES}
+	%\renewcommand{\tableofcontents}{Table of Contents}
+}
+
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+
+\hfuzz5pt
+\theoremstyle{plain}
+\newtheorem{theorem}{\textbf{Theorem}}[section]
+\newtheorem{lemma}[theorem]{\textbf{Lemma}}
+\newtheorem{proposition}[theorem]{\textbf{Proposition}}
+\newtheorem{corollary}[theorem]{\textbf{Corollary}}
+\newtheorem{assumption}[theorem]{\textbf{Assumption}}
+\newtheorem{addendum}[theorem]{\textbf{Addendum}}
+\newtheorem{definition}[theorem]{\textbf{Definition}}
+\newtheorem{remark}[theorem]{\textbf{Remark}}
+\newtheorem{example}[theorem]{\textbf{Example}}
+\newtheorem{conjecture}[theorem]{\textbf{Conjecture}}
+\newtheorem{notation}[theorem]{\textbf{Notation}}
+\renewcommand{\baselinestretch}{1.50} % for the line spacing.
+%\newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
+\begin{document}
+	\pagenumbering{roman} \baselineskip 29pt
+\newcommand{\disp}{\displaystyle}
+\thispagestyle{empty}
+
+
+%\parindent 0pt
+%\pagenumbering{roman}
+
+%\begin{document}
+
+\begin{center}
+	\textbf{\large{IMPLIED VOLATILITY IN THE MINIMAL MARKET MODEL}}
+\end{center}
+\ \
+\begin{center}
+	
+	BY
+\end{center}
+\ \
+\begin{center}
+	\textbf{\large{AYEGBUSI, ODUNAYO RUTH}}
+\end{center}
+\begin{center}
+	\textbf{Matric Number 218523}
+\end{center}
+\begin{center}
+	Submitted to the Department of  Mathematics
+\end{center}
+\begin{center}
+	Faculty of Science  
+\end{center}
+\begin{center}
+	University of Ibadan, Ibadan,  
+\end{center}
+\begin{center}
+	Nigeria  
+\end{center}
+\begin{center}
+	In Partial Fulfillment of the Award of Master of Science in Mathematics
+\end{center}
+\begin{center}
+	In the Department of Mathematics Faculty of Science
+\end{center}
+\begin{center}
+	University of Ibadan, Ibadan,  
+\end{center}
+\begin{center}
+	Nigeria  
+\end{center}
+
+%\baselineskip 18pt
+\begin{center}
+	FEBRUARY, 2022.
+\end{center}
+\addcontentsline{toc}{chapter}{Title Page}
+\newpage
+\begin{center}
+	\section*{CERTIFICATION} 
+\end{center}
+I certify that this project was carried out by  MISS AYEGBUSI, ODUNAYO RUTH with matriculation number 218523 in the department of Mathematics, University of Ibadan, Ibadan, Nigeria.\\
+\begin{center}
+	-----------------------------------------------\\
+	(\textbf{Supervisor})\\
+	\textbf{PROF. G.O.S. EKHAGUERE,}\\
+	\textbf{B.Sc.(Ibadan), Ph.D. (London),}\\
+	\textbf{Department of Mathematics,}\\
+	\textbf{University of Ibadan, Ibadan, Nigeria.} 
+\end{center}
+%\addcontentsline{toc}{chapter}{Certification}
+\addcontentsline{toc}{chapter}{Certification}
+
+\newpage
+\begin{center}
+	\section*{DEDICATION}
+\end{center}
+\noindent
+\par I dedicate this work to my parents for their unimaginable and unending love.
+
+\addcontentsline{toc}{chapter}{Dedication}
+
+\newpage
+\begin{center}
+	\section*{ACKNOWLEDGMENT}
+\end{center}
+\noindent
+\par My heartfelt thanks go to God Almighty, the Alpha and Omega, who has graciously allowed me to begin and complete this phase of my academic pursuit despite my fears. All glory is due to Him.\\
+\par Pastor and Pastor (Mrs.) James Ayegbusi, without your presence, I would not have gotten this far. Every effort made to ensure that everything runs smoothly and smoothly is deeply acknowledged and appreciated. I don't hope for or pray for better parents. Thank you for consistently being the best.\\
+\par All accolades are due to my wonderful and highly esteemed supervisor,
+Emeritus Professor G.O.S. Ekhaguere, who helped make some sense of the
+confusion and endured this long process with me, always offering support
+and love.\\
+\par I would like to thank Professor Olabisi Ugbebor for her motherly care
+and every member of staff of the Department of Mathematics, University of Ibadan for their support by imparting profound knowledge.\\
+\par This project would not have been possible without the support of many
+people. My sincere gratitude goes to my best pals; Mofoluwajuwonlo Adeoti, Priscilla Obaseki, Adejoke Adedoye. Thanks for being there. I will always appreciate our connection.\\
+\par I also appreciate my daddy, Pastor Kay for his encouragement and prayers and to everyone who had one way or the other contributed to the success of this project, I am grateful. I do not take your love for granted.\\
+\par Lastly, a standing ovation to the only three musketeers (my siblings) I have and will forever cherish; Jesulayomi Ayegbusi, Oluwabusayomi Ayegbusi, Temidayo Ayegbusi. Thanks for believing and giving me the opportunity to be the first that I am. My family deserves endless gratitude. I give everything including this.
+
+% \par My in-depth gratitude goes to God Almighty, the Alpha and Omega, who in His mercies
+% has graced me to start and complete this phase of my academic pursuit amidst all fears. To
+% Him belongs all glory.\\
+% \par To the very ones who without their existence I would not have made it this far, Pastor and
+% Pastor (Mrs.) James Ayegbusi. Mom, thank you for being my mother, sister, confidant,
+% chef, friend, pastor, adviser, doctor, ATM. Every effort inclosed into making sure all go
+% well and fine is deeply acknowledged and appreciated. Dad, thank you for being my father,
+% gist partner, pastor, counselor, ATM. I do not wish or pray for better parents. Thank you
+% for being the best.\\
+% \par All accolades are due to my wonderful and highly esteemed supervisor, Emeritus Professor
+% G.O.S. Ekhaguere, who helped make some sense of the confusion and endured this long
+% process with me, always offering support and love.\\
+% \par I would like to thank Professor Olabisi Ugbebor for her motherly care and every member
+% of staff of the Department of Mathematics, University of Ibadan for their support by
+% imparting profound knowledge.\\
+% \par This project would not have been possible without the support of many people. My sincere
+% gratitude goes to my best pals; Mofoluwajuwonlo, Priscilla, Adejoke. When it comes to true
+% friendship, I couldn’t have asked for better friends than you girls. Thanks for being there. i
+% will always appreciate our connection.\\
+% \par I also appreciate my daddy, Pastor Kay for his encouragement and prayers, my friends;
+% Happiness, Vincent, Iyanuoluwa, Uncle Deola, Oyeleye, Mummy Winniwinni, My Big
+% Uncles (Bro Lekan, Bro Olaiya, Uncle Tope), Sister Bose, My Grandmas (Grandma Labisi,
+% Grandma Osason, Grandma Iyanda). The family of Alao for the care and love showered
+% during the course of this program, my sweet HOD, the choir department, my babies in the
+% YOUTECH (choir) department and the entire church of the Word for the World Christian
+% Centre. Also grateful to my colleagues. And to my personal person Babs, for all you do, for
+% who you are, I will forever be grateful you are in my life. You are all deeply loved and
+% treasured.\\
+% \par Lastly, a standing ovation to the only three musketeers (my siblings) I have and will forever
+% cherish; Jesulayomi, Oluwabusayomi, Temidayo. Thanks for believing and giving me the
+% opportunity to be the first that I am. Sometimes I just wonder what I would have done
+% without you guys. A circle is round. It has no end. That is how long I want us to be. My
+% family deserves endless gratitude. I give everything including this.
+
+%\par  Firstly, my gratitude goes to Almighty Allah for sparing my life through my
+%course of study.\\
+%
+%\par I am deeply indebted to my supervisor, Emeritus Professor G O S. Ekhaguere,
+%without whose guidance and support this work will not have come to light. I am
+%thankful for the comments and advice you gave me from the inception of the
+%work to its completion, may God reward you abundantly sir.\\
+%
+%\par It is a pleasure to acknowledge the impact of the distinguished Professors and
+%members of staff of the department in my Mathematical journey.\\
+%
+%\par I am grateful to my aunt Alhaja rafiah sannni and her husband Alhaji kunle sanni
+%and my siblings, Nada, Abdulhaqq, wadud and zeem for their constant financial
+%support and prayers.\\
+%
+%\par I also want to express my sincere gratitude and thanks to my friends Asgat,
+%juwon, Mush, Akeju john, odunayo, Ausin and the rest of my colleagues in the
+%department for making my stay in University of Ibadan worthwhile.\\
+%
+%\par This acknowledgement will be incomplete if I failed to express my profound
+%gratitude to my beautiful fiancee Ilori Shukrah Oyefolashewa for all your
+%prayers, support and ceaseless help throughout the program.\\
+%
+%\par Finally, To those, and many others who have not been named, I express my
+%deep appreciation and will ever be thankful.
+\addcontentsline{toc}{chapter}{Acknowledgement}
+
+\newpage
+\begin{center}
+	\section*{ABSTRACT}
+\end{center}
+\noindent
+% \par An approximate formula for the Black–Scholes implied volatility is given by means of an asymptotic representation of
+% the Black–Scholes formula. This representation is based on a variable change that reduces the number of meaningful
+% variables from five to three. It is stated clearly which is the family of functions we are going to work, specially the inverse of
+% the normal accumulative function.\\
+% \par The inverse problem of option pricing, also known as market calibration, attracted the attention of a large
+% number of practitioners and academics, from the moment that Black-Scholes formulated their model. The
+% search for an explicit expression of volatility as a function of the observable variables has generated a vast
+% body of literature, forming a specific branch of quantitative finance. But up to now, no exact expression of
+% implied volatility has been obtained\\\\
+\par An approximate formula for the Black–Scholes implied volatility is given by means of an asymptotic representation of the Black–Scholes formula. This representation is based on a variable change that reduces the number of meaningful variables from five to three.\\
+\par The inverse problem of option pricing, also known as market calibration, attracted the attention of a large number of practitioners and academics, from the moment that Black-Scholes formulated their model. The search for an explicit expression of volatility as a function of the observable variables has generated a vast body of literature, forming a specific branch of quantitative finance. But up to now, no exact expression of implied volatility has been obtained.\\\\
+
+\textbf{Key words:} Black-Scholes model, inverse problem, implied volatility, conservation law
+
+
+\addcontentsline{toc}{chapter}{Abstract}
+
+
+\newpage 
+\tableofcontents
+\addcontentsline{toc}{chapter}{Table of Contents}
+
+%\newpage
+%\listoftables
+%\addcontentsline{toc}{chapter}{List of Tables}
+
+%\newpage
+%\listoffigures
+%\addcontentsline{toc}{chapter}{List of Figures}
+%%\listoftables
+%\addcontentsline{toc}{chapter}{List of Tables}
+
+
+\newpage
+\pagenumbering{arabic}
+\numberwithin{theorem}{section}
+
+%\chapter{GENERAL INTRODUCTION}
+
+
+%\chapter{GENERAL INTRODUCTION}
+
+\chapter{GENERAL INTRODUCTION}
+\section{Introduction}
+\noindent
+\par A market is the objectively structured condensing of participants' intentions into exchange agreements. Patterns characterize the market process, and market models are designed to capture the structure of these patterns. Some patterns are required for every market, provided that their associated participants' intentions and the products they intend to give away and receive in exchange are characterized. Agreements can only be reached when the intentions of the parties involved are aligned.\\
+
+\par The Minimal Market Model (MMM) is based on the idea that trading occurs because the participating agents perceive a trade to be beneficial. Their intentions, as well as the intrinsic motivation to realize them, are the driving force behind trade. The implication of minimality in the MMM is that a market based on the MMM has minimal restrictions on the strategy space of market participants and thus maximum freedom for them.\\
+
+\par The Black Scholes (BS) formula (one of the option pricing formulas) relates the price of an option to the underlying asset price, volatility, and other parameters such as the underlying stock price, option strike price, time to expiration, interest rate, and dividend yield. The implied volatility of an option is the market's evaluation of the underlying asset's volatility as reflected in the option price, which is calculated by reversing the Black Scholes option pricing model for a given option market price of the underlying asset.\\
+
+\par Implied volatility, like the rest of the market, is prone to unpredictability. The time value of an option, or how much time is left until it expires, is a premium influencing element that influences implied volatility. A short-dated option frequently has low implied volatility, making it less vulnerable, whereas a long-dated option has high implied volatility, making it more vulnerable. The demand-based option pricing theory explains the relationship between investor information and implied volatility. Option traders will buy (sell) call options or sell (buy) put options if they have favorable (negative) information that leads to a bullish (bearish) outlook for the future stock market. Market participants will only be able to meet a portion of customer demand. As a result, demand pressures caused by positive (negative) information translate into price pressures, increasing implied volatility (Bing \& Gang, 2017).
+
+
+% Minimal Market Model (MMM) is based on the notion that trading occurs because the participating agents perceive a trade as beneficial. Their intentions and the intrinsic motivation to realize these are the driving force for trade. The implication of minimality in the MMM is that a market based on the MMM has minimum restrictions on the strategy space of market participants and therefore maximum freedom for them.\\
+
+% The Black-Scholes (BS) formula (one of the option pricing formulas) relates the price of an option to the underlying asset price, the volatility of the underlying asset and other parameters which include; underlying stock price, strike price of the option, time to expiration, interest rate and dividend yield of the underlying asset. The market’s assessment of the underlying asset’s volatility as reflected in the option price is known as the implied volatility of the option which is obtained by inverting the (BS) option pricing model for the given market price of the option.\\
+
+% Just as with the market as a whole, implied volatility is subject to unpredictable changes. The time value of an option or the amount of time until the option expires is a premium influencing factor that affects implied volatility. A short-dated option often results in low implied volatility, thus, makes the implied volatility less vulnerable and a long-dated option tends to result in high implied volatility, thus, will be more sensitive.
+% The link between investor information and implied volatility can be understood under demand-based option pricing theory. If option traders possess positive (negative) information resulting in a bullish (bearish) view of the future stock market, they will either buy (sell) call options or sell (buy) put options. There will be limited capacity for market markers to meet customer demand. Hence, the demand pressures associated with positive (negative) information translate into price pressures, which push implied volatility higher (Bing \& Gang, 2017).
+\section{Basic Definitions}
+\begin{definition}[\textbf{Probability Space}]\label{121}
+\normalfont
+A probability space is a triplet $(\Omega,\beta, \mu)$ comprising a set of all possible outcomes $\Omega,$ a $\sigma-$ algebra, $\beta$ of subsets of $\Omega$ and a measure $\mu$ on the measurable space $(\Omega, \beta)$ such that $\mu(\Omega) = 1.$
+
+\end{definition}
+
+\begin{definition}[\textbf{Stochastic Process or Random Process}]\label{1222}
+\normalfont
+A stochastic process $X$ indexed by a subset $\Pi\subseteq\mathbb{R}$  which is a collection $\{X(t, \cdot) : t \in \Pi\}$ of random variables on a probability space $(\Omega, \beta, \mu)$ taking its value in $\mathbb{R}^d$
+\begin{align*}
+X(t,\cdot):&\Omega\rightarrow\mathbb{R}^d\\
+&w\rightarrow X(t,\omega)\in\mathbb{R}^d,~X(t,\omega) - X_t(\omega)
+\end{align*}
+\end{definition}
+
+\begin{definition}[\textbf{Derivative Security}]\label{123}
+\normalfont
+A derivative security is a financial contract or agreement between two parties whose value at an expiration date $T$, depends on the values of their underlying assets or variables up to time $T$. For example, in the case of forwards, futures, options, swap etc, the underlying asset could be a stock, a bond, currency or commodity.
+\end{definition}
+
+\begin{definition}[\textbf{Financial Markets}]\label{124}
+\normalfont
+These are where financial contracts are bought and sold. These include;
+\begin{itemize}
+\item Stock Markets: such as London Stock Exchange etc.
+\item  Bond Markets: where participants buy and sell debt securities.
+\item Futures and Options Markets: where derivatives are traded.
+\end{itemize}
+
+\end{definition}
+
+\begin{definition}[\textbf{Financial Contracts}]\label{125}
+\normalfont
+A financial contract is a written agreement between two parties to exchange payments according to some specified criteria.\\
+\textbf{Holder} is normally the buyer of the contract, who pays money at the beginning in exchange for receiving some payments at a later date.\\
+\textbf{Seller} receives the money at the beginning in exchange for giving out some payments at a later date.
+\end{definition}
+
+\begin{definition}[\textbf{Option}]\label{126}
+\normalfont
+An option is a derivative security furnishing the option holder with the right without any obligation to make a specified transaction at or by a specified date at a specified price. There are several types of options, some of which are
+\begin{description}
+\item[\textbf{A Call option:}] is an agreement or contract by which at a definite time in the future, known as the expiry date, the holder of the option may purchase from the option writer an asset known as the underlying asset for a definite amount known as the exercise or strike price.
+\item[\textbf{A Put option:}] is an agreement or contract by which at a definite time in the future, known as the expiry date, the holder of the option may sell to the option writer an asset known as the underlying asset for a definite amount known as the exercise or strike price.
+\item[\textbf{A European Option:}] gives the holder the right without any obligation to buy (if it is a call option) or to sell (if it is a put option) on the expiring date (maturity date) at the specified price called the strike price.
+\item[\textbf{An American option}] gives the holder the right without any obligation to buy (if it is a call option) or to sell (if it is a put option) prior to, or at, the expiry date or (maturity date) at the specified price called the strike price or exercise price.
+%\item[]
+\end{description}
+\end{definition}
+
+\begin{definition}[\textbf{Payoff of A European Option}]\label{1.2.6a}
+\normalfont
+Suppose that an investor holds a European call option with strike price $K$. Let $t = 0$ ne the time when the call option was acquired and $S(t)$ be the price of the underlying asset at time $t$. If at maturity date, $T$,
+\begin{enumerate}
+\item[(i)] $S(T) > K,$ the option is said to be in the money.
+\item[(ii)] $S(T) = K$, the option is at the money.
+\item[(iii)] $S(T) < K,$ the option is out of the money.
+\end{enumerate}
+\textbf{European Call Option:} The payoff $C_{EL}$ to an investor who holds a long position on a European call option with strike price $K$ and expiration (maturity) date $T$ is given as
+\begin{equation}\label{1.2.1}
+C_{EL} = \max\{S(T)-K,0\} = (S(T)-K)^+
+\end{equation}
+Since there is no obligation on the investor to exercise a call option, this option will not be exercised, if either the option is at the money or out of the money. The payoff to an investor who holds a short position (seller) on a European call option is given as
+
+\begin{equation}\label{1.2.2}
+C_{ES} = -\max\{S(T) - K,0\} =  \min\{K - S(T),0\}
+\end{equation}
+\textbf{European Put Option:} In the case of a European put option, the payoff to an investor who hold a long position on a European put option is given as;
+
+
+\begin{equation}\label{1.2.3}
+P_{EL} = \max\{K-S(T),0\} = (K-S(T))^{T+}.
+\end{equation}
+At the money, and out of the money, payoff is zero and the investor who holds a short position on the put option is given as
+
+\begin{equation}\label{1.2.4}
+P_{EL} = -\max\{K - S(T),0\} = \min\{S(T)-K,0\}
+\end{equation}
+%
+%
+%\begin{equation}\label{1.2.1}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{1.2.1}
+%
+%\end{equation}
+
+\end{definition}
+
+\begin{definition}[\textbf{Volatility}]\label{1.2.7}
+\normalfont
+It is the measure of the rate of illustrations in the price of a security overtime. It indicates the level of risk associated with the price changes of a security. The volatility of a stock is a measure of our uncertainty about the returns provided by the stock. It is denoted by $\sigma$.
+\end{definition}
+
+\begin{definition}[\textbf{Brownian Motion}]\label{1.3}
+\normalfont
+is a Wiener stochastic process.\\
+
+A Wiener process is a stochastic process $W(t)$ with values in $R$ defined for $t \in [0,\infty) $ such that the following conditions hold:
+\begin{enumerate}
+\item[(1)] $W(0) = 0$.
+\item[(2)] If $0 < s < t$ then $W(t)-W(s)$ has a normal distribution $ \sim N(0, t - s)$ with mean $0$ and variance $(t-s)$.
+\item[(3)] If $0 \leq  s \leq t \leq u \leq v$ (i.e., the two intervals $[s, t]$ and $[u, v]$ do not overlap) then $W(t)-W(s)$ and $W(v)-W(u)$ are independent random variables. In fact, the Wiener process is the only time homogeneous stochastic process with independent increments that has continuous trajectories.
+\item[(4)] The sample paths $t \rightarrow W(t)$ are almost surely continuous. The probability density function of the Wiener process is given by
+$$
+f_{W(t)}(x) = \frac{1}{\sqrt{2\pi t}}e^{-\frac{x^2}{2t}}
+$$
+\end{enumerate}
+\textbf{Geometric Brownian motion as a basis for options pricing:}
+A stochastic process $S_t$ is said to follow a \textbf{Geometric Brownian motion} if it satisfies the following stochastic differential equation
+$$
+dS_t = S_t(\mu dt+\sigma dB_t)
+$$
+where $\mu$ is the percentage drift and $\sigma$ the percentage volatility.\\
+This equation has an analytic solution:
+$$
+S_t = S_0e^{\bigg(\mu - \frac{\sigma^2}{2}\bigg)t+\sigma dB_t}
+$$
+for an arbitrary initial value $S_0$. This model is used in options pricing.
+
+\end{definition}
+
+\begin{definition}[\textbf{Martingale, Supermartingale, Submartingale}]\label{1.4}
+\normalfont
+Let $X$ be a stochastic process on a filtered probability space $(\Omega,\beta,\mu,\mathbb{F}(\beta))$. Then $X$ is called
+\begin{itemize}
+\item[(i)] a submartingale if $X(t) \in L^1(\Omega,\beta,\mu)$ for each $t\in \Pi$ and $\mathbb{E}(X(t)|\beta_s)\geq X(s)~a.s.$ whenever $t>s$.
+\item[(ii)] a supermartingale if $X(t) \in L^1(\Omega,\beta,\mu)$ for each $t\in \Pi$ and $\mathbb{E}(X(t)|\beta_s)\leq X(s),~a.s.$ whenever $t>s$.
+\item[(iii)] a martingale if $X(t)\in L^1(\Omega,\beta,\mu)$ for each $t\in \Pi$ and $X$ is both a submartingale and a supermartingale i.e.
+$$
+\mathbb{E}(X(t)|\beta_s) = X(s)~a.s.
+$$
+whenever $t>s$ with $\Pi\subset\mathbb{R}$. This is one classification of stochastic
+\end{itemize}
+\end{definition}
+\section{Ito's Lemma}
+\begin{lemma}\cite[pg.~03]{guo2011small}[Ito's Lemma]\label{L1.5}
+If a stochastic variable $X_t$ satisfies the SDE
+$$
+dX_t = \mu(X_t,t)dt+\sigma(X_t,t)dW_t
+$$
+then given any function $f(X_t,t)$ of the stochastic variable $X_t$ which is twice differentiable in its first argument and once in its second,
+\begin{align*}
+df(X_t,t)& = \bigg[\bigg(\frac{\partial}{\partial t}+\mu(X_t,t)\frac{\partial}{\partial X_t}+\frac{1}{2}\sigma^2(X_t,t)\frac{\partial^2}{\partial X_t^2}\bigg)f(X_t,t)\bigg]dt\\
+&+\bigg[\sigma(X_t,t)\frac{\partial}{\partial X_t}f\bigg]dW_t,
+\end{align*}
+\end{lemma}
+This may be obtained heuristically by performing a Taylor expansion in $X_t$ and $t$, keeping terms of order $dt$ and $(dW_t)^2$ and replacing
+$$
+(dW_t)^2\rightarrow dt,~~(dt)^2\rightarrow 0,~~ dW_tdt\rightarrow 0
+$$
+\begin{itemize}
+\item Quadratic variation of the pure diffusion is $O(dt)!$
+\item Cross variation of $dt$ and $dW_t$ is $O(dt^{\rfrac{3}{2}})$
+\item Quadratic variation of $dt$ terms is $O(dt^2)$
+\end{itemize}
+\begin{align*}
+df(X_t,t)& = f(X_{t+dt},t+dt) - f(X_t,t)\\
+& = f(X_t+dX_t,t+dt)-f(X_t,t)\\
+&\approx \frac{\partial}{\partial t}f(x_t,t)dt+\frac{\partial}{\partial x_t}f(x_t,t)dx_t+\frac{\partial^2}{\partial x_t\partial_t}f(x_t,t)dx_tdt\\
+&+\frac{1}{2}\frac{\partial^2}{\partial x_t^2}f(x_t,t)dx_t^2+\frac{1}{2}\frac{\partial^2}{\partial t^2}f(x_t,t)dt^2+\cdots
+\end{align*}
+\begin{align*}
+(dX_t)^2& = (\mu dt+\sigma dW_t)^2\\
+& = \mu^2dt^2+\sigma^2(dW_t)^2+2\mu\sigma dtdW_t\approx \sigma^2(dW_t)^2\leftrightarrow\sigma^2dt
+\end{align*}
+
+
+\chapter{LITERATURE REVIEW}
+\noindent
+\par Fisher Black, Myron Scholes, and Robert Merton introduced the Black-Scholes-Merton model to the world in the early 1970s (Hull, 2017).\\
+\par The pioneering work of Black and Scholes (1973) and Merton (1973) in the field of option pricing has enabled the study of implied volatility. This option pricing model has recently gained popularity among academics, practitioners, and policymakers.
+If the market is efficient, implied volatility appears to be an unbiased and efficient predictor of future return volatility, according to the BS option pricing model.\\
+
+\par All other variables used to explain future realized volatility should be subsumed by implied volatility.
+Several methodological tools from physics have been borrowed by economists and financial theorists over the last fifteen years. The numerous similarities between the subjects of study allowed for the transpositions. There are parallels between the behavior of the value of certain financial instruments over time and modes of particle diffusion, for example.\\
+\par Mantegna and Stanley (1999), Dragulescu and Yakovenko (2000), Sornette (2002), and Bouchaud and Potters (2003) all attest to the growing importance of what some call ``econophysics’. Theorists' interest in the conservation law concept, which originated in physics, is growing all the time. Samuelson (1970), Sato and Ramachandran (1990), and Kataoka and Hashimoto (1995) were among the first to take an interest in the topic, but the majority of the works have been published more recently.\\
+
+\par Samuelson (2004), Mitchell (2004), and Sato (2004) have all published academic research (2004). These authors' practical applications include, for example, evaluating corporate performance using characteristics whose values do not change as the firm evolves. Conservation law methodology has also shown promise in the field of market finance. In dynamical models, knowledge of invariant relations between the derivatives of an unknown function allows for the resolution of a number of previously unsolvable problems. The description of the symmetries to which the conservation laws correspond necessitates the selection of analytical methods with care.\\
+
+\par As a result, the application of Lie's theory to the Black-Scholes equation study by Gazizov and Ibragimov (1996), Lo and Hui (2001), Pooe et al. (2003), and Silberberg (2004) has produced results that are varied but of limited practical utility. The application of the new approach to the theory of variable separation, first proposed in quantum mechanics by Fris et al. (1965), BagroSv et al. (1973), and Shapovalov and Sukhomlin (1974), has proven more fruitful. Sukhomlin (2004) built a number of conservation laws and defined several classes of new solutions by applying this local approach, which is not limited to first-order differential symmetry operators, to the Black- Scholes model.
+He focused on the conservation law of option value elasticity in particular. The symmetry of the classic Black-Scholes solution was discovered later by Sukhomlin (2006). One of the most important implications of the study of conservation laws in the Black-Scholes model is the precise expression of volatility as a function of market parameters. This is a significant theoretical advance because it is widely assumed (for example, Hull (2006).) that the Black-Scholes formula cannot be inverted.\\
+
+\par Recent research has resulted in only approximate formulas (See, for example, Cont (2008)). Estrella (1996) investigated the application of the Taylor series to the Black-Scholes model, focusing on convergence issues. He focused on the "Greeks" delta and gamma, noting in one case that the option value's third derivative could be expressed as a function of the second derivative. This property is also true in the general case, according to our research. Furthermore, this model property is critical because it allows us to reveal the very specific symmetry of the classic Black-Scholes solution and express the implied volatility directly as a function of the other observable parameters.\\
+
+\par The mathematical complexity encountered in approaches to the inverse problem of option pricing can be found, for example, in the works of Bouchouev and Isakov (1997), Chiarella et al. (2003), and Egger et al. (2004). (2006). One of the most significant challenges is that volatility is not constant in reality. However, even under the simplifying hypothesis of constant volatility, which is the main assumption of the classic Black-Scholes model, the inverse problem of option pricing has not yet been solved (the literature contains Dupire's formula for local volatility in addition to a wide variety of approximate formulas) (Dupire, 1993). This is deduced, however, from Kolmogorov's direct equation, which corresponds to that of Black and Scholes, rather than the classic solution, which is the essence of the Black-Scholes model. As a result, it does not provide a solution to the inverse problem of option pricing in the context of the Black-Scholes model.\\
+
+\par Some academics and practitioners believe that implied volatility is the best predictor of future realized return volatility (Latané, Rendleman 1976; Chiras, Manaster 1978; Beckers 1981; Day, Lewis 1992; Jorion 1995; Christensen, Prabhala 1998; Hansen 2001; Christensen, Hansen 2002; Szakmary et al. 2003; Corrado, Miller 2005; Panda et al. 2008; Li, Yang 2009; Shaikh, Padh. Some academics, on the other hand, are skeptical of market efficiency and the predictive power of implied volatility. Canina and Figlewski (1993), Lamoureux and Lastrapes (1993), Gwilym and Buckle (1999), and Filis (2009) present contradictory findings regarding the information content of option prices and the predictive power of implied volatility. Some academics, however, such as Jackwerth and Rubinstein (1996), Chance (2003), and Koopman et al. (2005), strongly oppose the information content of implied volatility.\\
+
+\par We are aware of only two major studies that compare IV's predictive power for individual stocks to conditional heteroskedasticity models: Lamoureux and Lastrapes (1993) and Mayhew and Stivers (2003).\\
+\par Mayhew and Stivers (2003) provide the most compelling evidence in favor of implied volatility (IV). They demonstrate that implied volatility (IV) "captures the majority or all of the relevant information in past return shocks, at least for stocks with actively traded options." They also demonstrate that the predictive power of IV decreases as option volume increases.\\
+
+\par Fung, Lie, and Moreno (1990) and Edey and Eliot (1991) published additional research on the forecasting power of implied volatility of currency options (1992). Turvey (1990) investigated various weighting schemes for calculating implied volatilities for soybean and live cattle futures options.
+Option prices, according to Maloney and Rogalski (1989), reflect predictable seasonal patterns in volatility. Morse (1991) investigated the seasonality of implied volatility and discovered that the difference between call and put implied volatility tends to fall on Fridays and rise on Mondays. \\
+
+\par Day and Lewis (1988) discovered that implied volatility is higher near the expiration dates of stock index futures and stock index options. Bailey (1988) investigated the reaction of implied volatility to the release of (M1) money supply information. Gemmill (1992) investigated the pattern of implied volatility in British markets just before the 1987 election. Madura and Tucker (1992) investigated the impact of US balance-of-trade deficit announcements on the implied volatility of Financial Analysts Journal/July-August 1995 13 currency options.
+
+
+% In the early 1970’s, the Black-Scholes-Merton model was introduced to the world by Fisher Black, Myron Scholes and Robert Merton (Hull, 2017).\\
+
+% The innovative work of Black and Scholes (1973) and Merton (1973) in the area of option pricing has made it possible to study implied volatility. Recently, this option pricing model has become popular among the academicians, practitioners and policy makers. According to BS option pricing model, if the market is efficient implied volatility appears to be an unbiased and efficient predictor of future return volatility.\\
+
+% Implied volatility should subsume the information contained in all other variables used to explain future realized volatility
+% Over the last fifteen years, economic and financial theorists have borrowed several methodological tools from physics. The transpositions have been made possible by the many similarities between the subjects of study. There are analogies, for example, between the behavior over time of the value of certain financial instruments and modes of particle diffusion.\\
+
+% The works of Mantegna and Stanley (1999), Dragulescu and Yakovenko (2000), Sornette (2002) and Bouchaud and Potters (2003) bear witness to the increasing importance of what some have named ``econophysics''. Theorists’ interest in the concept of conservation law, originally developed in physics, is constantly growing. Samuelson (1970), Sato and Ramachandran (1990) and Kataoka and Hashimoto (1995) took a very early interest in the subject, but most of the works have been more recent.\\
+
+% Academic research has been published by Samuelson (2004), Mitchell (2004) and Sato (2004). The practical applications presented by these authors concern, for example, the evaluation of corporate performance using characteristics whose values do not change as the firm evolves. The methodology of conservation laws has also shown promise in the field of market finance. Knowledge of invariant relations between the derivatives of an unknown function, in Dynamical Models, makes it possible to resolve a certain number of hitherto unsolvable problems. Description of the symmetries to which the conservation laws correspond implies the careful choice of analytical methods.\\
+
+% Thus, the application of Lie’s theory to the Black-Scholes equation study, by Gazizov and Ibragimov (1996), Lo and Hui (2001), Pooe et al. (2003) and Silberberg (2004) has produced results that are varied, but of limited use from a practical point of view. Use of the new approach to the theory of the separation of variables, first proposed in quantum mechanics by Fris et al. (1965), BagroSv et al. (1973) and Shapovalov and Sukhomlin (1974), has proved to be more fruitful. By applying this local approach, which is not limited to first- order differential symmetry operators, to the Black- Scholes model, Sukhomlin (2004) constructed a number of conservation laws and defined several classes of new solutions. In particular, he studied the conservation law of option value elasticity. Then Sukhomlin (2006) discovered the symmetry of the classic of Black-Scholes solution. One of the most important prospects opened up by the study of conservation laws in the Black-Scholes model concerns the exact expression of volatility as a function of the parameters that can be observed in the market. This is an important theoretical advance, because there is a widely-held view (See, for example, Hull (2006).) that it is not possible to invert the Black-Scholes formula.\\
+
+% Recent studies have led to formulas that are only approximate (See, for example, Cont (2008)). Estrella (1996) studied the application of the Taylor series to the Black-Scholes model, and particularly problems of convergence. He concentrated on the ``Greeks'' delta and gamma, noting in one particular case that the third derivative of the option value could be expressed as a function of the second derivative. Our study shows that this property is also true in the general case. Moreover, this property of the model proves to be crucial, because its use makes it possible to reveal the very particular symmetry of the classic Black-Scholes solution and to express the implied volatility directly as a function of the other observable parameters.\\
+
+% The mathematical complexity encountered in the approaches to the inverse problem of option pricing appears, for example, in the publications of Bouchouev and Isakov (1997), Chiarella et al. (2003) and Egger et al. (2006). One of the chief difficulties lies in the fact that, in reality, volatility is not constant. However, even under the simplifying hypothesis of constant volatility that constitutes the principal assumption of the classic Black- Scholes model, the inverse problem of option pricing has not yet been solved (In addition to the wide variety of approximate formulas, the literature also contains Dupire’s formula for local volatility (Dupire, 1993). However, this is deduced from Kolmogorov’s direct equation, corresponding to that of Black and Scholes, and not from the classic solution that is the essence of the Black-Scholes model. It is not, therefore, a solution to the inverse problem of option pricing within the context of the Black-Scholes model.). In this article, the solution for this latter case is given.\\
+
+% There are some academicians and practitioners like (Latané, Rendleman 1976; Chiras, Manaster 1978; Beckers 1981; Day, Lewis 1992; Jorion 1995; Christensen, Prabhala 1998; Hansen 2001; Christensen, Hansen 2002; Szakmary et al. 2003; Corrado, Miller 2005; Panda et al. 2008; Li, Yang 2009; Shaikh, Padhi 2013a, 2014a) are in the favor of implied volatility as the best predictor of future realized return volatility. On the other hand, some scholars are quite suspicious about market efficiency and the predictive power of implied volatility. Canina and Figlewski (1993), Lamoureux and Lastrapes (1993), Gwilym and Buckle (1999), and Filis (2009) present mixed conclusions on the information content of option prices and the predictive power of implied volatility. However, some scholars like Jackwerth and Rubinstein (1996), Chance (2003), and Koopman et al. (2005) strongly oppose the information content of implied volatility.\\
+
+% Lamoureux and Lastrapes (1993) and Mayhew and Stivers (2003) are the only major studies that we are aware of to examine IV’s predictive power for individual stocks when compared to conditional heteroskedasticity models.\\
+
+% Mayhew and Stivers (2003) provide the strongest support for implied volatility (IV). They show that implied volatility (IV) ``captures most or all of the relevant information in past return shocks, at least for stocks with actively traded options.'' They further show that the predictive power of IV deteriorates with option volume.\\
+
+% Additional research on the forecasting power of the implied volatility of currency options has been reported by Fung, Lie, and Moreno (1990) and by Edey and Eliot (1992). Turvey (1990) tested alternative weighting schemes for calculating implied volatilities for options on soybean and live cattle futures.\\
+
+% Maloney and Rogalski (1989) found that option prices reflect predictable seasonal patterns in volatility. Morse (1991) also looked at the seasonality of implied volatility, finding that the difference between call and put implied volatility tends to drop on Fridays and rise on Mondays.\\
+
+% Day and Lewis (1988) found that implied volatility is higher around the expiration dates of stock index futures and stock index options. Bailey (1988) examined the response of implied volatility to the release of (M1) money supply information. Gemmill (1992) examined the pattern of implied volatility in British markets immediately prior to the election of 1987.\\
+% Madura and Tucker (1992) considered the effect of U.S. balance-of-trade deficit announcements on the implied volatility of Financial Analysts \\Journal/July-August 1995 13 currency options. Levy and Yoder (1993) investigated the behavior of implied volatility around merger and acquisition announcements, and Barone-Adesi, Brown, and Harlow (1994) used the implied volatility of options on target firms to estimate the probability of a successful takeover.\\
+
+% Jayaraman and Shastri (1993) examined the relationship between implied volatility and announcements of dividend increases.
+\chapter{IMPLIED VOLATILITY AND BLACK SCHOLES MODEL}
+\section{Black-Scholes Formula}
+\noindent
+% In the early 1970’s, the Nobel prize awarded Black-Scholes-Merton Model was introduced to the world by founders Fisher Black, Myron Scholes and Robert Merton (Hull,2017).
+% \par The Black-Scholes model, is the first widely used model for option pricing and is still today one of the most important concepts in modern financial theory. The model calculates the value of a European option using inputs that are all observable in the markets, with one exception being volatility.\\
+
+% The key idea behind the model is to hedge the options in an investment portfolio by buying and selling the underlying asset(such as a stock) in just the right way and as a consequence, eliminate risk.\\
+\par The model calculates the value of a European option using market-observable inputs, with the exception of volatility.\\
+The model's central idea is to hedge the options in an investment portfolio by buying and selling the underlying asset (such as a stock) at precisely the right time, thereby eliminating risk.
+
+We derive the well-known result of Black and Scholes that under certain assumptions the time-$t$ price $C(S_t;~K; T)$ of a European call option with strike price $K$ and maturity.\\
+European call option with strike price $K$ and maturity $\tau = T-t$ on a non-dividend stock with spot price $S_t$ and a constant volatility $\sigma$ when the rate of interest is a constant $\tau$ can be expressed as
+\begin{equation}\label{111}
+C(S_t, K,T) = S_t\Phi(d_1) - e^{-r\tau}K\Phi(d_2)
+\end{equation}
+where
+$$
+d_1 = \frac{\ln\frac{S_t}{K}+\bigg(r+\frac{\sigma^2}{2}\bigg)\tau}{\sigma\sqrt{\tau}}
+$$
+and $d_2 = d_1-\sigma\sqrt{\tau}$, and where $\Phi(y) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^y e^{-\frac{1}{2}t^2}dt$ is the standard normal cumulative distribution function.\\ %We show four ways in which Equation \eqref{(1)} can be derived.\\
+There are two assets: a risky  stock $S$ and riskless bond $B$. These assets satisfy the SDEs
+
+\begin{equation}\label{22222222}
+\begin{split}
+dS_t& = \mu S_tdt+\sigma S_tdW_t\\
+dB_t& = r_tB_tdt
+\end{split}
+\end{equation}
+The time zero value of the bond is $B_0 = 1$ and that of the stock is $S_0$.\\
+We start with the processes  for the stock price and bond price
+\begin{align*}
+dS_t& = \mu S_tdt+\sigma S_tdW_t\\
+dB_t& = r_t B_tdt.
+\end{align*} 
+We apply $Ito's$ Lemma to get the processes for $\ln S_t$ and $\ln B_t$
+\begin{align}
+\label{3}
+d\ln S_t& = (\mu - \frac{1}{2}\sigma^2)dt + \sigma dW_t\\
+\label{4}
+d\ln B_t& = r_tdt,
+\end{align}
+which allows us to solve for $S_t$ and $B_t$
+\begin{align}
+\label{5}
+S_t& = S_0e^{\bigg(\mu - \frac{1}{2}\sigma^2\bigg)t+\sigma W_t}\\
+\label{6}
+B_t = e^{\int_0^t r_sds}
+\end{align}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+if a random variable $Y\in\mathbb{R}$ follows the normal distribution with mean $\mu$ and variance $\sigma^2,$ then $X = e^Y$ follows the lognormal distribution with mean
+\begin{equation}\label{k3.7}
+E[X] = e^{u+\frac{1}{2}\sigma^2}
+\end{equation}
+and variance
+
+\begin{equation}\label{k3.8}
+Var[X] = \bigg(e^{\sigma^2} - 1\bigg)e^{2\mu+\sigma^2}
+\end{equation}
+The pdf for $X$ is
+\begin{equation}\label{k3.9}
+dF_X(x) = \frac{1}{\sigma x\sqrt{2\pi}}\exp\bigg(-\frac{1}{2}\bigg(\frac{\ln x - \mu}{\sigma}\bigg)^2\bigg)
+\end{equation}
+and the cdf is
+\begin{equation}\label{k3.10}
+F_X(x) = \Phi\bigg(\frac{\ln x - \mu}{\sigma}\bigg)
+\end{equation}
+where $\Phi(y) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^y e^{-\frac{1}{2}t^2}dt$ is the standard normal cdf.\\
+The expected value of $X$ conditional on $X>x$ is $L_X(K) = E[X|X>x]$. For the lognormal distribution this is, using equation \eqref{k3.9}
+$$
+L_X(K) = \int_K^\infty\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\bigg(\frac{\ln x - u}{\sigma}\bigg)^2}dx.
+$$
+Make the change of variable $y = \ln x$ so that $x = e^y,~dx = e^ydy$ and the Jacobian is $e^y$. Hence we have
+
+\begin{equation}\label{k3.11}
+L_X(K) = \int_{\ln K}^\infty\frac{e^y}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\bigg(\frac{y-\mu}{\sigma}\bigg)^2}dy.
+\end{equation}
+Combining terms and completing the square, the exponent is
+$$
+-\frac{1}{2\sigma^2}(y^2-wy\mu+\mu^2-2\sigma^2y) = -\frac{1}{2\sigma^2}(y-(\mu+\sigma^2))^2+\mu+\frac{1}{2}\sigma^2.
+$$
+Equation \eqref{k3.11} becomes
+
+\begin{equation}\label{k3.12}
+L_X(K) = \exp(\mu+\frac{1}{2}\sigma^2)\frac{1}{\sigma}\int_{\ln K}^\infty\frac{1}{\sqrt{2\pi}}\exp\bigg(-\frac{1}{2}\bigg(\frac{y-(\mu+\sigma^2)}{\sigma}\bigg)^2\bigg)dy.
+\end{equation}
+Consider the random variable $X$ with pdf $f_X(x)$ and cdf $F_X(x)$, and the scale-location transformation $Y = \sigma X+\mu$. It is easy to show that the Jacobian is $\frac{1}{\sigma}$, that the pdf for $Y$ is $f_Y(y) = \frac{1}{\sigma}f_X\bigg(\frac{y -\mu}{\sigma}\bigg)$ and that the cdf is $F_Y(y) = F_X\bigg(\frac{y-\mu}{\sigma}\bigg).$ Hence, the integral in equation \eqref{k3.12} involves the scale-location transformation of the standard normal cdf. Using the fact that $\Phi(-x) = 1- \Phi(x)$ this implies that
+\begin{equation}\label{k3.13}
+L_X(k) = \exp\bigg(\mu+\frac{\sigma^2}{2}\bigg)\Phi\bigg(\frac{-\ln K+\mu+\sigma^2}{\sigma}\bigg).
+\end{equation}
+We want to find a measure $\mathbb{Q}$ such that under $\mathbb{Q}$ the discounted stock price that uses $B_t$ is a martingale. Write
+\begin{equation}\label{k3.14}
+dS_t = r_tS_tdt+\sigma S_tdW_t^{\mathbb{Q}}
+\end{equation}
+where $W_t^\mathbb{Q} = W_t+\frac{\mu - r_t}{\sigma}t$. We have that under $\mathbb{Q}$, at time $t = 0$, the stock price $S_t$ follows the lognormal distribution with mean $S_0e^{r_tt}$ and variance $S_0^2e^{2r_tt}\bigg(e^{\sigma^2t} - 1\bigg),$ but that $S_t$ is not a martingale. Using $B_t$ as the numeraire, the discounted stock price is $\tilde{S}_t = \frac{S_t}{B_t}$ and $\tilde{S}_t$ will be a martingale. Apply Ito's Lemma to $\tilde{S}_t$, which follows the SDE
+\begin{equation}\label{k3.15}
+d\tilde{S}_t = \frac{\partial \tilde{S}}{\partial B}dB_t=\frac{\partial \tilde{S}}{\partial S}dS_t
+\end{equation}
+since all terms involving the second-order derivatives are zero. Expand Equation \eqref{k3.15} to obtain
+
+\begin{equation}\label{k3.16}
+\begin{split}
+d\tilde{S}_t& = -\frac{S_t}{B_t^2}dB_t+\frac{1}{B_t}dS_t\\
+& = -\frac{S_t}{B_t^2}(r_tB_tdt)+\frac{1}{B_t}\bigg(r_tS_tdt+\sigma S_tdW_t^\mathbb{Q}\bigg)\\
+& = \sigma \tilde{S}_tdW_t^{\mathbb{Q}}.
+\end{split}
+\end{equation}
+The solution to the SDE \eqref{k3.16} is
+$$
+\tilde{S}_t = \tilde{S}_0\exp\bigg(-\frac{1}{2}\sigma^2t+\sigma W_t^{\mathbb{Q}}\bigg).
+$$
+This implies that $\ln$ ~$\tilde{S}_t$ follows thw normal distribution with mean $\ln\tilde{S}_0 - \frac{\sigma^2}{2}t$ and variance $\sigma^2t$. To show that $\tilde{S}_t$ is a martingale under $\mathbb{Q}$, consider the expectation under $\mathbb{Q}$ for $s<t$
+\begin{align*}
+E^Q\bigg[\tilde{S}_t\bigg|F_s\bigg]& = \tilde{S}_0\exp\bigg(-\frac{1}{2}\sigma^2t\bigg)E^{\mathbb{Q}}\bigg[\exp\bigg(\sigma W_t^\mathbb{Q}\bigg)\bigg|\mathcal{F}_s\bigg]\\
+& = \tilde{S}_0\exp\bigg(-\frac{1}{2}\sigma^2t+\sigma W_s^\mathbb{Q}\bigg)E^{\mathbb{Q}}\bigg[\exp\bigg(\sigma\bigg(W_t^\mathbb{Q} - W_s^\mathbb{Q}\bigg)\bigg)\bigg].
+\end{align*} 
+
+At time $s$ we have that $W_t^\mathbb{Q} - W_s^{\mathbb{Q}}$ is distributed as $N(0,t-s)$ which is in distribution to $W_{t-s}^\mathbb{Q}$ at time zero. Hence we can write
+$$
+E^{\mathbb{Q}}\bigg[\tilde{S}_t\bigg|\mathcal{F}_s\bigg] = \tilde{S}_0\exp\bigg(-\frac{1}{2}\sigma^2t+\sigma W_s^\mathbb{Q}\bigg)E^\mathbb{Q}\bigg[\exp\bigg(\sigma W^{\mathbb{Q}}_{t-s}\bigg)\bigg|\mathcal{F}_0\bigg].
+$$ 
+Now, the moment generating function (mgf) of a random variable $X$ with distribution $N(\mu,\sigma^2)$ is $E[e^{\phi X}] = \exp(\mu\phi+\frac{1}{2}\phi^2\sigma^2)$. Under $\mathbb{Q}$ we have $W_{t-s}^\mathbb{Q}$ is $\mathbb{Q}-$Brownian motion and distributed as $N(0,t-s)$. Hence the $W_{t-s}^\mathbb{Q}$ is $E^\mathbb{Q}\bigg[\exp\bigg(\sigma W^\mathbb{Q}_{t-s}\bigg)\bigg] = \exp(\frac{1}{2}\sigma^2(t-s))$ where $\sigma$ takes the place and we can write
+
+\begin{align*}
+{E}^\mathbb{Q}\bigg[\tilde{S}_t\bigg|\mathcal{F}_s\bigg]& = \tilde{S}_0\exp(-\frac{1}{2}\sigma^2t+\sigma W_s^\mathbb{Q})\exp(\frac{1}{2}\sigma^2(t-s))\\
+& = \tilde{S}_0\exp(-\frac{1}{2}\sigma^2s+\sigma W_s^\mathbb{Q})\\
+& = \tilde{S}_s.
+\end{align*}
+We thus have that $E^\mathbb{Q}[\tilde{S}_t|\mathcal{F}_s] = \tilde{S}_s$, which shows that $\tilde{S}_t$ is a $\mathbb{Q}-$Martingale Pricing a European call option under Black-Scholes makes use of the fact that under $\mathbb{Q}$, at tike $t$ the terminal stock price  at expiry, $S_T$, follows the normal distribution with mean $S-te^{r\tau}$ and variance $S_t^2e^{2r\tau}(e^{\sigma^2\tau}-1)$ when the interest rate $r_t$ is a constant value, $r$. Finally, note that under the original measure the pricess for $\tilde{S}_t$ is
+$$
+d\tilde{S}_t = (\mu-r)\tilde{S}_tdt+\sigma\tilde{S}-tdW_t
+$$  
+which is obviously not a martingale.\\
+We thus have that $E^\mathbb{Q}\bigg[\tilde{S}_t\bigg|\mathbb{F}_s\bigg] = \tilde{S}_s$, which shows that $\mathbb{S}_t$ is a $\mathbb{Q}-$Martingale. Pricing a European call option under Black-Scholes makes use of the fact that under $\mathbb{Q}$, at time $t$ the terminal stock price at expiry, $S_T$ follows the normal distribution with mean $S_te^{r\tau}$  and variance $S_t^2e^{2r\tau}\bigg(e^{\sigma^2\tau} - 1\bigg)$ when the interest rate $r_t$ is a constant value, $r$. Finally, note that under the original measure the process for $\tilde{S}_t$ is
+$$
+d\tilde{S}_t = (\mu-r)\tilde{S}_tdt+\sigma\tilde{S}_tdW_t
+$$
+which is obviously not a martingale. Under a constant interest rate $r$ the time $-t$ price of a European call option on a non-dividend paying stock when its spot price is $S_t$ and with  strike $K$ and time to maturity $\tau = T-t$ is 
+
+\begin{equation}\label{k3.17}
+C(S_t,K,T) = e^{-r\tau}E^\mathbb{Q}\bigg[(S_T - K)^+\bigg|\mathcal{F}_t\bigg]
+\end{equation}
+which can be evaluated to produce Equation \eqref{111}, reproduced here for convenience
+$$
+C(S_t,K,T) = S_t\Phi(d_1) - Ke^{-r\tau}\Phi(d_2)
+$$
+where
+$$
+d_1 = \frac{\log\frac{S_t}{K}+\bigg(r+\frac{\sigma^2}{2}\bigg)\tau}{\sigma\sqrt{\tau}}
+$$
+and
+\begin{align*}
+d_2 &  = d_1 -\sigma\sqrt{\tau}\\
+& = \frac{\log \frac{S_t}{K}+\bigg(r - \frac{\sigma^2}{2}\bigg)\tau}{\sigma\sqrt{\tau}}
+\end{align*}
+
+%\begin{equation}
+%
+%\end{equation}
+%
+%\begin{equation}
+%
+%\end{equation}
+%
+%\begin{equation}
+%
+%\end{equation}
+%
+%\begin{equation}
+%
+%\end{equation}
+%
+%\begin{equation}
+%
+%\end{equation}
+%
+%\begin{equation}
+%
+%\end{equation}
+%
+%\begin{equation}
+%
+%\end{equation} 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+We apply a change of measure to obtain the stock price under the risk neutral measure $\mathbb{Q}$
+
+\begin{equation}\label{7}
+\begin{split}
+dS_t& = rS_t+\sigma S_tdW_t^{\mathbb{Q}}\Rightarrow\\
+S_t& = S_0e^{(r-\frac{1}{2}\sigma^2)t+\sigma W_1^{\mathbb{Q}}}
+\end{split}
+\end{equation}
+Since $S_t$ is not a martingale under $\mathbb{Q}$, we discount $S_t$ by $B_t$ to obtain $\tilde{S}_t = \frac{S_t}{B_t}$ and
+\begin{align*}
+d\tilde{S}_t& = \sigma\tilde{S}_tdW_t^{\mathbb{Q}}~\Rightarrow\\
+\tilde{S}_t& = \tilde{S}_{0}e^{-\frac{1}{2}\sigma^2t+\sigma W_t^{\mathbb{Q}}}
+\end{align*}
+so that $\tilde{S}_t$ is a martingale under $\mathbb{Q}$.\\% The distributions of the processes described\\
+
+Let $\mathcal{N}$ be an equivalent martingale measure (EMM) such that the discounted stock price is a martingale. Moreover, the EMM $\mathcal{N}$ determines the unique numeraire $N_t$ that discounts the stock price. The time-t value $V(S_t;t)$ of the derivative with payoff $V(S_T ; T)$ at time $T$ discounted by the numeraire $N_t$ is
+
+
+\begin{equation}\label{8}
+V(S_t,t) = N_tE^{\mathbb{N}}\bigg[\frac{V(S_T,T)}{N_T}\mathcal{F}_t\bigg].
+\end{equation}
+%In the derivation of the previous 
+Recall $B_t = e^{rt}$ serves as the numeraire, and since $r$ is deterministic we can take $N_T = e^{rT}$ out of the expectation and with $V(S_T,T) = (S_T - K)^+$ we can write
+$$
+V(S_t,t) = e^{-r(T-t)}E^{\mathbb{N}}\bigg[(S_T - K)^+\bigg|\mathcal{F}_t\bigg]
+$$
+which is Equation \eqref{111} for the call price.\\
+Recall the stock price in equation \eqref{7}
+
+$$
+dS_t = rS_t+\sigma S_tdW_t^{\mathbb{Q}}
+$$
+The relative bond price is defined as $\tilde{B} = \frac{B}{S}$ and by $Ito's$ Lemma follows the process
+$$
+d\tilde{B}_t = \sigma^2\tilde{B}_tdt  - \sigma \tilde{B}_tW_t^{\mathbb{Q}}.
+$$
+The measure $\mathbb{Q}$ turns $\tilde{S} = \frac{S}{B}$ into a martingale, but not  $\tilde{B}$. The measure $\mathbb{P}$ that turns $\bar{B}$ into a Martigale is 
+\begin{equation}\label{9}
+W_t^{\mathbb{P}} = W_t^{\mathbb{Q}} - \sigma t
+\end{equation}
+so that
+$$
+d\bar{B}_t = -\sigma \bar{B}_tdW_t^{\mathbb{P}}
+$$
+is a martingale under $\mathbb{P}$. The value of the European call is determined by using $N_t = S_t$ as the numeraire along with the payoff function $V(S_T, T) = (S_T - K)^+$
+
+\begin{equation}\label{100}
+\begin{split}
+V(S_t,t)& = S_t E^{\mathbb{P}}\bigg[\frac{(S_T - K)^+}{S_T}\bigg|\mathcal{F}_t\bigg]\\
+& = S_t\mathbb{E}^{\mathbb{P}}[(1-KZ_T)|\mathcal{F}_t]
+\end{split}
+\end{equation}
+where $Z_t = \frac{1}{S_t}$. To evaluate $V(S_t,t)$ we need the distribution for $Z_T$. The process for $Z = \frac{1}{S}$ is obtained using $Ito's$ Lemma on $S_t$ in Equation \eqref{8} and the change of measure in Equation \eqref{9}
+\begin{align*}
+dZ_t& = (-r+\sigma^2)Z_tdt - \sigma Z_tdW_t^{\mathbb{Q}}\\
+& = -rZ_tdt - \sigma Z_tdW_t^{\mathbb{P}}.
+\end{align*}
+To find the solution for $Z_t$ we define $Y_t = \ln Z_t$ and apply Ito's Lemma again, to produce
+
+\begin{equation}\label{11}
+dY_t = -\bigg(r +\frac{\sigma^2}{2}\bigg)dt - \sigma dW_t^{\mathbb{P}}.
+\end{equation}
+By Integrating we have
+$$
+Y_T - Y_t = -\bigg(r+\frac{\sigma^2}{2}\bigg)\bigg(T-t\bigg) - \sigma\bigg(W_T^{\mathbb{P}} - W_t^{\mathbb{P}}\bigg)
+$$
+so that $Z_T$ has the solution
+\begin{equation}\label{122}
+Z_T = e^{\ln Z_t}= \bigg(r+\frac{\sigma^2}{2}\bigg)(T-t)-\sigma(W_T^{\mathbb{P}} - W_t^{\mathbb{P}}).
+\end{equation}
+Now, since $W_T^{\mathbb{P}} - W_t^{\mathbb{P}}$ is identical in distribution to $W_T^{\mathbb{P}}$, where $\tau = T-t$ is the time to maturity, and since $W_\tau^{\mathbb{P}}$ follows the normal distribution with zero mean and variance $\sigma^2\tau,$ the exponent in Equation \eqref{122}
+$$
+\ln Z_t = \bigg(r+\frac{\sigma^2}{2}\bigg)(T-t)-\sigma\bigg(W_T^{\mathbb{P}}-W_t^{\mathbb{P}}\bigg),
+$$
+follows the normal distribution with mean
+$$
+u = \ln Z_t-\bigg(r+\frac{\sigma^2}{2}\bigg)\tau = -\ln S_t-\bigg(r+\frac{\sigma^2}{2}\bigg)\tau
+$$
+and variance $v = \sigma^2\tau$. This implies that $Z_T$ follows the lognormal distribution with mean $e^{\rfrac{u+v}{2}}$ and variance $(e^v - 1)e^{2u+v}$. Note that $(1-KZ_T)^+$ in the expectation of equation \eqref{100} is non-zero when $Z_T<\frac{1}{K}$. Hence we can write this expectation as the two integrals
+\begin{equation}\label{133}
+\begin{split}
+E^{\mathbb{P}}[(1-KZ_T)|\mathcal{F}_t]& = \int_{-\infty}^{\frac{1}{K}}dF_{Z_T} - K\int_{-\infty}^{\frac{1}{k}}Z_TdF_{Z_T}\\
+& = I_1-I_2
+\end{split} 
+\end{equation}
+where $F_{Z_T}$ is the cumulative distribution function (cdf) of $Z_T$ in equation \eqref{k3.10}
+$$
+F_X(x) = \Phi\bigg(\frac{\ln x - \mu}{\sigma}\bigg).
+$$
+The first integral in equation \eqref{133}
+\begin{align}\label{14}
+\begin{split}
+I_1& = F_{Z_T}(\frac{1}{K}) = \Phi\bigg(\frac{\ln\frac{1}{K} - u}{v}\bigg)\\
+& =\Phi\bigg(\frac{-\ln K+\ln S_t\bigg(r+\frac{\sigma^2}{2}\bigg)\tau}{\sigma\sqrt{\tau}}\bigg)\\
+& = \Phi(d_1).
+\end{split}
+\end{align}
+Using the definition of $L_{Z_T}(x)$ in equation \eqref{k3.13} is 
+%Using the lognormal conditional expected value
+$$
+L_X(K) = \exp\bigg(\mu + \frac{\sigma^2}{2}\bigg)\phi\bigg(\frac{-\ln K+\mu+\sigma^2}{\sigma}\bigg)
+$$
+the second integral in \eqref{133} is therefore,
+\begin{align}\label{15}
+\begin{split}
+I_2 & = K\bigg[\int_{-\infty}^\infty Z_T dF_{Z_T} - \int_{\frac{1}{K}}^\infty Z_TdF_{Z_T}\bigg]\\
+& = K\bigg[E^{\mathbb{P}}[Z_T] - L_{Z_T}\bigg(\frac{1}{K}\bigg)\bigg]\\
+& = K\bigg[e^{u+v/2}-e^{u+v/2}\Phi\bigg(\frac{-\ln\frac{1}{K}+u+v}{\sqrt{v}}\bigg)\bigg]\\
+& = Ke^{u+v/2}\bigg[1-\Phi\bigg(\frac{-\ln\frac{S_t}{K} - \bigg(r-\frac{\sigma^2}{2}\bigg)\tau}{\sigma\sqrt{\tau}}\bigg)\bigg]\\
+& = \frac{K}{S_t}e^{-r\tau}\Phi(d_2)
+\end{split}
+\end{align}
+Since $1-\Phi(-d_2) = \Phi(d_2)$. Substitute the expressions for $I_1$ and $I_2$ from Equations \eqref{14} and \eqref{15} into the valuation Equation \eqref{11}
+\begin{align*}
+V(S_t,t)& = S_tE^{\mathbb{P}}[(1-KZ_T)|\mathcal{F}_t]\\
+& = S_t[I_1 - I_2]\\
+& = S_t\Phi(d_1) - Ke^{-rr}\Phi(d_2)
+\end{align*}
+which is the Black-Scholes call price in Equation \eqref{111}.
+
+\section{Implied Volatility}
+%\begin{definition}[\textbf{Implied Volatility (IV)}]\label{3.2.1}
+\normalfont
+\par Implied Volatility refers to a metric space that captures the market’s view of the likelihood of changes in a given security’s place. It is a prediction of how much the price of a security will move over a given period of time. It is most often used to price option contracts. IV is the function of time to expiration, spot price, exercise price, market price of an option, risk-free interest rate and dividend.
+%\end{definition}
+
+% \begin{definition}[\textbf{How IV Works}]\label{3.2.2}
+% \normalfont
+\subsection{How Implied Volatility Works}
+\par By its nature as a predictive measure, IV is theoretical that is it does not predict which direction a particular security will move, only how much it is likely to move in any direction. It is based on how the security is behaving in the market and what is happening with supply and demand around that particular stock option.
+%\end{definition}
+
+%\begin{definition}[\textbf{IV and Options}]\label{3.2.3}
+\subsection{Implied Volatility and Options}
+\normalfont
+\par Regardless of whether an option is a call or put, its price or premium will increase as IV increases. This is because an option’s value is based on the likelihood that it will finish in-the-money.\\
+
+IV approximates the future value of the option and the option’s current value is also taken into consideration. IV is one of the deciding factors in the pricing of options which can be obtained by inverting the Black-Scholes option pricing model. It is the volatility that is obtained when put into the Black-Scholes option pricing model yields the price of the option.
+%\end{definition}
+
+\section{Black - Scholes Implied Volatility}
+\noindent
+\par The introduction gives an auxiliary function of $K_{si}$ which is defined from the classic solution of the Black-Scholes model. The volatility is then expressed as a function of the option price and its derivatives, the underlying, the risk-free interest rate, the strike price and the time to maturity.\\
+
+The Black-Scholes partial differential Equation is expressed as follows:
+
+
+%
+%\begin{definition}\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}\label{}
+%\normalfont
+%
+%\end{definition}
+
+\begin{equation}\label{3.1}
+\frac{\partial V}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2 V}{\partial S^2}+rS\frac{\partial V}{\partial S} - rV = 0,
+\end{equation}
+
+where $V$ is the option value, $S$ is the value of the underlying at time $t; r$ is the interest rate and $\sigma$ is the volatility (with the last two parameters assumed to be constant).The limit condition is: $V = \max (S - K; 0)$ at expiration date for a European call option on an underlying asset with no dividends. The constants $K$ and $T$ represent the strike price and expiration date respectively $(t \in [0,T]).$\\
+The classic Black-Scholes solution is written as:
+
+\begin{equation}\label{3.2}
+V = SN(d_1) - F(t)N(d_2)
+\end{equation}
+with
+
+\begin{equation}\label{3.3}
+F(t)\equiv Ke^{-r(T-t)}
+\end{equation}
+
+\begin{equation}\label{3.4}
+N(d)\equiv\frac{1}{\sqrt{2\pi}}\int_{-\infty}^d e^{\rfrac{-u^2}{2}}du
+\end{equation}
+
+\begin{equation}\label{3.5}
+d_1\equiv \frac{\ln S - \ln K}{\tau}+(1-\beta)\tau
+\end{equation}
+
+
+\begin{equation}\label{3.6}
+d_2\equiv\frac{\ln S - \ln K}{\tau} - \beta~\tau
+\end{equation}
+
+\begin{equation}\label{3.7}
+\tau\equiv \sigma\sqrt{T-t}
+\end{equation}
+
+\begin{equation}\label{3.8}
+\beta\equiv \frac{1}{2} - \frac{r}{\sigma^2}
+\end{equation}
+
+\begin{equation}\label{3.9}
+\mbox{Given that  }~ d_1 = d_2+\tau
+\end{equation}
+It is pissible to write that:
+\begin{equation}\label{3.10}
+SN^\prime(d_1) = F(t)N^\prime(d_2)
+\end{equation}
+Let there also be the auxiliary function $K_{si}$, only used for calculation purpose:
+\begin{equation}\label{3.11}
+\xi\equiv V^{(2)} - V^{(1)}
+\end{equation}
+With:
+
+\begin{equation}\label{3.12}
+V^{(1)}\equiv\partial V/\partial(\ln S)
+\end{equation}
+
+
+\begin{equation}\label{3.13}
+\mbox{  And  }~ V^{(2)}\equiv \partial^2 V/\partial (\ln S)^2
+\end{equation}
+Then
+\begin{equation}\label{3.14}
+\xi = \frac{1}{\tau}S\bigg[N^\prime(d_1)+\frac{1}{\tau}SN^{\prime\prime}(d_1)\bigg]+\frac{1}{\tau}F(t)\bigg[N^\prime(d_2) - \frac{1}{\tau}N^{\prime\prime}(d_2)\bigg]
+\end{equation}
+Taking into account the normal law's property
+
+\begin{equation}\label{3.15}
+N^{\prime\prime}(d) = -dN^\prime(d)
+\end{equation}
+We can deduce that
+\begin{equation}\label{3.16}
+\xi = \frac{1}{\tau}SN^\prime(d_1)\bigg[1-\frac{d_1}{\tau}\bigg]+\frac{1}{\tau}F(t)N^\prime(d_2)\bigg[\frac{d_2}{\tau}+\bigg]
+\end{equation}
+Then
+
+\begin{equation}\label{3.17}
+\xi = \frac{1}{\tau}S~N^\prime(d_1)
+\end{equation}
+or again
+
+\begin{equation}\label{3.18}
+\xi = \frac{1}{\tau}F(t)N^\prime(d_2)
+\end{equation}
+Let $E_\xi$ be the elasticity of the auxiliary function $K_{si}$ in relation to $S$
+
+
+\begin{equation}\label{3.19}
+E_\xi\equiv\frac{\partial\ln|\xi|}{\partial\ln S} = \frac{1}{\tau^2}(\ln S - \ln K)+\beta
+\end{equation}
+And
+\begin{equation}\label{3.20}
+\tau^2(E_\xi-\beta) = \ln K - \ln S
+\end{equation}
+
+From equation \eqref{3.17}, it is seen that the well-known characterisitc gamma is linked to the auxiliary function $K_{si}$ by the Equation:
+$$
+\xi = S^2\Gamma ~ \Leftrightarrow ~ E_\xi = 2+E_\Gamma,~~ E_\Gamma \equiv \Gamma^{(1)}/\Gamma
+$$
+This enables us to write \eqref{3.20} in another way:
+\begin{equation}\label{3.21}
+t^2(E_\Gamma+2-\beta) = \ln K - \ln S
+\end{equation}
+
+By replacing $\tau$ and $\beta$ in the Equation \eqref{3.20} by their expressions in \eqref{3.7} and \eqref{3.8} , the volatility can then be expressed directly. The inverse problem of the classic Black-Scholes model can then be solved exactly, in the form of the following expression of the volatility as a function of four variables: the ratio of the strike price to the underlying, the risk-free interest rate, the time to maturity and the elasticity of the ``Greek'' characteristic \emph{Gamma:}
+\begin{equation}\label{3.22}
+\sigma = \sqrt{\frac{\ln(K/S) - r(T-t)}{(T-t)(E_\Gamma)+\frac{3}{2}}}
+\end{equation}
+
+The volatility is thus exactly defined as a function of the directly observable variables of the model and one other variable, gamma that can be calculated from the option value, which is itself observable.
+
+\chapter{IMPLIED VOLATILITY IN THE MINIMAL MARKET MODEL}
+\section{The Minimal Market Model}
+\noindent
+\par The Minimal Market Model (MMM) offers a semantic perspective on markets and the fundamentals. Its structure suffices to capture the essential aspects within a market. But, beyond that, it forms the basis for systematically developing more specific market models.\\
+
+The MMM is based on the following notion of intentional reasoning, trading occurs because the participating agents perceive a trade as beneficial. Their intentions and the intrinsic motivation to realize these are the driving force for trade. In this context, a market is the impartial structured condensation of participants' intentions into exchange agreements. Therefore, intentions have to be uttered.\\
+
+The market models seek to capture the structure of these patterns because the market process is chracterized by patterns.% process is characterized by patterns and market models intend to capture the structure of these patterns. 
+Besides this descriptive aspect, market models can also be used to prescribe patterns for markets. Some patterns are required for every market, namely that intentions are characterized by their associated participant and the products the latter intends to give away and receive in exchange. Products are described by - potentially complex - attribute structures.\\
+
+Agreements can only be reached, when the constituting intentions match. These essential requirements are common to all markets and reveal their very essence. When assembling a market model, they can serve as a starting point and always outline the minimum conditions.\\
+
+Our notion of minimality implies that a market based strictly on the MMM has the least restrictions required for a market. This also means minimum restrictions on the strategy space of market participants and therefore maximum freedom for them. It implies that every essential aspect of markets is included and no superfluous or redundant information is represented. Thus, the crucial function of the Minimal Market Model is to provide a complete, compact and coherent representation of the characteristics of the market nature.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Let's consider a simple Black Scholes (BS) market. It contains an underlying security with price process
+
+$$
+S = \{S_t,~t\in[0,T]\},
+$$
+which satisfies the SDE
+
+\begin{equation}\label{1}
+dS_t = \alpha_t S_tdt+\sigma_tS_tdW_t
+\end{equation}
+for $t\in[0,T]$ with $S_0>0$, where $T\in[0,\infty)$.\\
+Furthermore, our BS model has a domestic savings account with value process $B = \{B_t,t\in[0,T]\},$ where 
+
+\begin{equation}\label{2}
+dB_t = r_tB_tdt
+\end{equation}
+for $t\in[0,T]$ and $B_0  = 1$.\\
+A self-financing strategy $\delta = \{\delta_t = (\delta_t^0,\delta_t^1)^T,~t\in[0,1]\},$ with $\delta_t^0$ units held at time $t$ in the domestic savings account and $\delta_t^1$ units invested in the underlying security, has the corresponding portfolio value
+
+\begin{equation}\label{9.1.3}
+S_t^\delta = \delta_t^0B_t+\delta_t^1S_t
+\end{equation}
+so that 
+
+\begin{align*}
+    dS_t& = \alpha_tS_tdt+\sigma_tS_tdW_t\\
+    dB_t& = r_tB_tdt\\
+    S_t^\delta & = \delta_t^0B_t+\delta_t^1S_t
+\end{align*}
+with
+\begin{align*}
+    dS_t^\delta& = \delta_t^0dB_t+\delta_t^1dS_t\\
+    & = \delta_t^0r_tB_tdt+\delta_t^1(\alpha_tS_tdt+\sigma_tS_tdW_t)\\
+    & = (\delta_t^0r_tB_t+\delta_t^1\alpha_tS_t)dt+\delta_t^1\sigma_tS_tdW_t
+\end{align*}
+\begin{align*}
+    \pi_\delta^0(t)& = \delta_t^0\frac{B_t}{S_t^\delta}\Longrightarrow B_t\delta_t^0 = \pi^0_\delta(t) S_t^\delta,\\
+    \pi_\delta^1(t)& = \delta_t^1\frac{S_t}{S_t^\delta}\Longrightarrow S_t\delta_t^1 = \pi^1_\delta(t) S_t^\delta,
+\end{align*}
+\begin{align*}
+dS_t^\delta & = \bigg(r_t B_t\delta_t^0+\alpha_tS_t\delta_t^1\bigg)dt+\sigma_tS_t\delta_t^1dW_t\\
+& = \bigg(r_t B_t\delta_t^0+\alpha_tS_t\delta_t^1\bigg)dt+\sigma_t\pi^1_\delta(t)S_t^\delta dW_t
+\end{align*}
+\begin{equation}\label{9.1.4}
+% \begin{split}
+% dS_t^\delta & = \delta_t^0dB_t+\delta_t^1dS_t\\
+% & = (\delta_t^0r_tB_t+\delta_t^1a_tS_t)dt+\delta_t^1\sigma_tS_tdW_t\\
+% & = S_t^\delta((\pi_\delta^0(t)r_t+\pi_\delta^1(t)a_t)dt+\pi_\delta^1(t)\sigma_tdW_t)
+% \end{split}
+dS_t^\delta = S_t^\delta\bigg[\bigg(\pi_\delta^0(t)r_t+\pi_\delta^1(t)\alpha_t\bigg)dt+\sigma_t\pi_\delta^1(t)dW_t\bigg]
+\end{equation}
+for $t\in[0,T]$. Note that the SDE \eqref{9.1.4} is such that it guarantees the self-financing property of the portfolio, where all changes of its value are due to changes in the securities. Here we use the corresponding fractions
+
+\begin{equation}\label{9.1.5}
+\pi_\delta^0(t) = \delta_t^0\frac{B_t}{S_t^\delta}
+\end{equation}
+and 
+\begin{equation}\label{9.1.6}
+\pi_\delta^1(t) = \delta_t^1\frac{S_t}{S_t^\delta}
+\end{equation}
+that are held in the respective securities. Obviously, these fractions add up to one, that is,
+\begin{equation}\label{9.1.7}
+\pi_\delta^0(t)+\pi_\delta^1(t) = 1
+\end{equation}
+for $t\in[0,T]$\\
+% Note: the notion of a fraction makes only sense as long as the portfolio value is not zero.
+% $$
+% \ln\bigg(S_t^\delta\bigg)
+% $$
+
+By the Ito formula we obtain from \eqref{9.1.4} and \eqref{9.1.7} for the logarithm $\ln\bigg(S_t^\delta\bigg)$ 
+of a strictly positive portfolio the SDE to get
+%show this now
+By the Ito formula we obtain from \eqref{9.1.4}
+$$
+dS_t^\delta = S_t^\delta\bigg(\pi_\delta^0(t)r_t+\pi_\delta^1(t)\alpha_tdt+\pi_\delta^1(t)\sigma_tdW_t\bigg)
+$$
+divide through by $S_t^\delta$
+\begin{equation}\label{new411}
+\frac{dS_t^\delta}{S_t^\delta} = \bigg(\pi_\delta^0(t)r_t+\pi^1_\delta(t)\alpha_t\bigg)dt+\pi_\delta^1(t)\sigma_tdW_t
+\end{equation}
+
+\begin{equation}
+d\bigg(\ln S_t^\delta\bigg) =  \frac{dS_t^\delta}{S_t^\delta}.
+\end{equation}
+Let $u(t,S_t^\delta) = \ln S_t^\delta$\\
+By Ito formula, we wish to find the following;
+
+\begin{equation}
+\left.
+\begin{split}
+\frac{\partial u}{\partial t},&~~\frac{\partial u}{\partial S_t^\delta},~~\frac{\partial^2u}{\partial(S_t^\delta)^2}\\
+\frac{\partial u}{\partial t} = ? &~~\frac{\partial u}{\partial S_t^\delta} = \frac{1}{S_t^\delta},~~\frac{\partial^2u}{\partial(S_t^\delta)^2} = -\frac{1}{(S_t^\delta)^2}
+\end{split}
+\right\}
+\end{equation}
+
+\begin{equation}\label{new415}
+\partial u(t,S_t^\delta) = d\ln S_t^\delta = gu(t,S_t^\delta)dt+fu(t,S_t^\delta)dW_t
+\end{equation}
+where
+$$
+gu(t,S_t^\delta) = \frac{\partial u}{\partial t}(t,S_t^\delta)+g(t,S_t^\delta)\frac{\partial u}{\partial t}(t,S_t^\delta)+\frac{1}{2}(f(t,S_t^\delta))^2\frac{\partial^2u}{\partial(S_t^\delta)^2}(t)
+$$
+and 
+$$
+fu(t,S_t^\delta) = f(t,S_t^\delta)\frac{\partial u}{\partial S_t^\delta}(t,S_t^\delta)
+$$
+from equation \eqref{new411}
+\begin{align*}
+g(t,S_t^\delta) & = (\pi^0_\delta(t)r_t+\pi_\delta^1(t)\alpha_t)S_t^\delta\\
+f(t,S_t^\delta) & = (\pi^1_\delta(t)\sigma_t)S_t^\delta%+\pi_\delta^1(t)\alpha_t)S_t^\delta
+\end{align*}
+\begin{equation}\label{new418}
+\begin{split}
+gu(t,S_t^\delta) & = \frac{\partial u}{\partial t}(t,S_t^\delta)+g(t,S_t^\delta)\frac{\partial u}{\partial t}(t,S_t^\delta)+\frac{1}{2}(\pi_\delta^1(t)\sigma_tS_t^\delta)^2\cdot [-\rfrac{1}{S_t^\delta}]\\
+& = \frac{\partial u}{\partial t}(t,S_t^\delta)+g(t,S_t^\delta)\frac{\partial u}{\partial t}(t,S_t^\delta) - \frac{1}{2}(\pi_\delta^1(t))^2\sigma_t^2
+\end{split}
+\end{equation}
+
+
+\begin{equation}\label{new419}
+\begin{split}
+fu(t,S_t^\delta)& = \pi_\delta^1(t)\sigma_tS_t^\delta\cdot\frac{1}{S_t^\delta} = \pi_\delta^1(t)\sigma_t\\
+fu(t,S_t^\delta)& = \pi_\delta^1(t)\sigma_t
+\end{split}
+\end{equation}
+substituting  equations \eqref{new418} and \eqref{new419} into \eqref{new415}
+$$
+du(t,S_t^\delta) = d\ln S_t^\delta = (\frac{\partial u}{\partial t}(t,S_t^\delta)+g(t,S_t^\delta)\frac{\partial u}{\partial t}(t,S_t^\delta) - \rfrac{1}{2}(\pi^1_\delta(t)^2\sigma_t^2)dt+\pi^1_\delta(t)\sigma_tdW_t)
+$$
+$$
+\therefore d\ln S_t^\delta = (\pi_\delta^0(t)r_t+\pi_\delta^1(t)\alpha_t) - \frac{1}{2}(\pi^1_\delta(t)^2\sigma_t^2)dt+\pi_\delta^1(t)\sigma_tdW_t
+$$
+%%%%%%% check
+from equation \eqref{9.1.6}, $\pi_\delta^0(t)+\pi_\delta^1(t) = 1$; $\pi_\delta^0(t) = 1-\pi_\delta^1(t)$
+\begin{equation}
+\begin{split}
+\bigg(d\ln S_t^\delta & = \bigg(1-\pi_\delta^1(t)\bigg)r_t+\pi_\delta^1(t)\alpha_t\bigg) - \rfrac{1}{2}(\pi^1_\delta(t)^2\sigma_t^2)dt+\pi_\delta^1(t)\sigma_tdW_t\\
+& = r_t+\pi_\delta^1(t)(\alpha_t - r_t)-\frac{1}{2}(\pi_\delta^1(t)^2\sigma^2_t)dt+\pi_\delta^1(t)\sigma_tdW_t
+\end{split}
+\end{equation}
+
+% \begin{equation}
+% d\ln S_t^\delta = g_td\pi_\delta^1 dW_t
+% \end{equation}
+
+\begin{equation}\label{9.1.8}
+d\ln(S_t^\delta) = g_t^\delta dt+\pi_\delta^1(t)\sigma_tdW_t
+\end{equation}
+
+with growth rate
+
+\begin{equation}\label{9.1.9}
+g_t^\delta = r_t+\pi_\delta^1(t)(\alpha_t-r_t)-\frac{1}{2}(\pi_\delta^1(t))^2\sigma_t^2
+\end{equation}
+for $t\in[0,T]$.
+\begin{definition}\label{9.1.1}
+\normalfont
+Under the BS model the Growth Optimal Portfolio (GOP) is the portfolio process $S^{\delta_\star} = \{S_t^{\delta_\star},~t\in[0,T]\}$ with optimal growth rate $g_t^{\delta_\star}$ at time $t$ such that
+\begin{equation}\label{9.1.10}
+g_t^\delta\leq g_t^{\delta_\star}
+\end{equation}
+almost surely for all $t\in[0,T]$ and strictly positive portfolio processes $S^\delta$.
+\end{definition}
+\noindent
+\par Let us now choose the fraction $\pi_\delta^1(t)$ such that the growth rate $g_t^\delta$ is maximized for each $t\in[0,T]$, which will give us the Growth Optimal Portfolio (GOP). By application of the first order condition to maximize the growth rate $g_t^\delta$ in \eqref{9.1.9} with respect to the fraction $\pi_\delta^1(t)$ we obtain the condition %Note that the choice of the reference unit is not relevant fpr the corresponding 
+\begin{equation}\label{9.1.11}
+\frac{\partial g_t^\delta}{\partial\pi_\delta^1(t)} = \alpha_t - r_t - \pi_{\delta_\star}^1(t)\sigma_t^2 = 0
+\end{equation}
+for $t\in[0,T]$. Therefore, we obtain the optimal fraction in the underlying security
+\begin{equation}\label{9.1.12}
+\pi_{\delta_\star}^1(t) = \frac{\alpha_t - r_t}{\sigma_t^2}
+\end{equation}
+thus, by \eqref{9.1.7} the optimal fraction in the savings account
+
+\begin{equation}\label{9.1.13}
+\pi_{\delta_\star}^0(t) = 1-\pi_{\delta_\star}^1(t)  ~~~\mbox{  for  }~t\in[0,T].
+\end{equation}
+
+\begin{equation}\label{9.1.14}
+g_t^{\delta_\star} = r_t+\frac{1}{2}\bigg(\frac{\alpha_t - r_t}{\sigma_t}\bigg)^2~~~\mbox{  for  }~ t\in[0,T].
+\end{equation}
+From  \eqref{9.1.4}, \eqref{9.1.12} and \eqref{9.1.13}, we obtain the Growth Optimal Portfolio (GOP) as the wealth process
+$$
+S^{\delta_\star} = \{S_t^{\delta_\star},~t\in[0,T]\}
+$$
+which satisfies the SDE
+
+
+\begin{equation}\label{9.1.15}
+dS_t^{\delta_\star} = S_t^{\delta_\star}((r_1+\theta_t^2)dt+\theta_tdW_t)
+\end{equation}
+with initial value $S_0^{\delta_\star}>0$ and Growth Optimal Portfolio (GOP) volatility
+
+\begin{equation}\label{9.1.16}
+\theta_t = \pi_{\delta_\star}^1(t)\sigma_t = \frac{\alpha_t - r_t}{\sigma_t}
+\end{equation}
+for $t \in [0, T]$, where $\theta_t$ is called the \emph{market price of risk} at time $t$.\\
+According to \eqref{9.1.14} and \eqref{9.1.16} the optimal growth rate for the given BS model equals
+
+\begin{equation}\label{9.1.17}
+g_t^{\delta_\star} = r_t+\frac{1}{2}\theta^2_t ~~\mbox{  for  }~t\in[0,T]
+\end{equation}
+This reveals a close link between the squared volatility and the optimal growth rate of the Growth Optimal Portfolio (GOP).\\
+For the discounted Growth Optimal Portfolio (GOP)
+
+\begin{equation}\label{9.1.18}
+\bar{S}_t^{\delta_\star} = \frac{S_t^{\delta_\star}}{B_t}
+\end{equation}
+
+By the Ito formula with \eqref{9.1.15} and \eqref{2}, we derive the SDE
+
+\begin{equation}\label{9.1.19}
+d\bar{S}_t^{\delta_\star} = \bar{S}_t^{\delta_\star}\theta_t(\theta_tdt+dW_t)~~\mbox{  for  }~t\in[0,T].
+\end{equation}
+\textbf{Note:} the drift of the discounted Growth Optimal Portfolio (GOP) is determined as the square of the diffusion coefficient.
+
+\section{Drift Parameterization}
+\noindent
+\par We have observed that the drift of the discounted Growth Optimal Portfolio (GOP) can be interpreted as the change per unit time of its
+underlying economic value. This drift provides an important link between the long term average evolution of the
+market index and the long term growth of the macro economy. By the law of conservation of value, the growth rate
+of the discounted index should in the long term, on average, match the growth rate of the total net wealth of the
+companies which comprise the market portfolio. More precisely, we consider the \emph{discounted Growth Optimal Portfolio (GOP) drift}
+\begin{equation}\label{13.1.4}
+\alpha_t^{\delta_\star} = \bar{S}_{t}^{\delta_\star}|\theta_t^2|~~\mbox{  for  }~t\in[0,\infty)
+\end{equation}
+which is assumed to be a strictly positive, predictable parameter process. Using this parameterization we obtain from \eqref{13.1.4} the volatility $|\theta_t|$ of the Growth Optimal Portfolio (GOP) in the form
+
+\begin{equation}\label{13.1.5}
+|\theta_t| = \sqrt{\frac{\alpha_t^{\delta_\star}}{\bar{S}_t^{\delta_\star}}}.
+\end{equation}
+This structure provides a natural explanation for the leverage effect. When the index decreases, then the volatility
+increases and vice versa. This creates a feedback effect resulting from the structure of the SDE
+
+$$
+d\bar{S}_t^{\delta_\star} = \bar{S}_t^{\delta_\star}|\theta_t|(|\theta_t|dt+dW_t),
+$$
+for the discounted Growth Optimal Portfolio (GOP). By substituting \eqref{13.1.4}  and \eqref{13.1.5} into the SDE, we obtain the following parameterization of the SDE of the discounted Growth Optimal Portfolio (GOP):
+\begin{equation}\label{13.1.6}
+d\bar{S}_t^{\delta_\star} = \alpha_t^{\delta_\star}dt+\sqrt{\bar{S}_t^{\delta_\star}\alpha_t^{\delta_\star}}dW_t~~\mbox{  for  }~t\in[0,\infty)
+\end{equation}
+We emphasize that the square root of the discounted Growth Optimal Portfolio (GOP) appears in the diffusion coefficient. \\
+Note that the parameter process $\alpha^{\delta_\star} = \{\alpha_t^{\delta_\star},t\in[0,\infty)\}$ can be freely specified as a predictable stochastic process such that the SDE \eqref{13.1.6} has a unique strong solution.\\
+With the quantity
+
+\begin{equation}\label{13.1.7}
+A_t = A_0+\int_0^t\alpha_s^{\delta_\star}ds
+\end{equation}
+we can write \eqref{13.1.6} in the form
+
+
+\begin{equation}\label{13.1.8}
+\bar{S}_t^{\delta_\star} = \bar{S}_0^{\delta_\star}+A_t-A_0+\int_0^t\sqrt{\bar{S}_s^{\delta_\star}\alpha_s^{\delta_\star}}dW_s
+\end{equation}
+
+for $t \in [0,\infty)$. Here $A_t$ can be interpreted as the underlying value at time $t$ of the discounted Growth Optimal Portfolio (GOP), where $A_0$ needs to
+be appropriately chosen as the initial underlying value at time $t = 0$. One can say that the underlying value $A_t$ corresponds to the discounted wealth that underlies the discounted index $\bar{S}\delta$. The drift parameterization above has, therefore, a formal economic meaning. If one expects the fluctuations of the increase per unit time of the discounted underlying value to be reasonably independent of trading uncertainty, then the fitting of a model to
+market data is more likely to be effective and amenable to this drift parameterization.\\
+\par It is important to realize that the SDE \eqref{13.1.6} describes a very particular transformed diffusion process with the specification of  transformed time $\varphi(t)$ as 
+
+\begin{equation}\label{13.2.0}
+\varphi(t) = \frac{1}{4}\int_0^t\alpha_s^{\delta_\star}ds
+\end{equation}
+\subsection*{Stylized Minimal Market Model}
+Let us now apply the above results for the derivation of the \emph{minimal market model} (MMM),
+\subsection{Net Growth Rate}
+By conservation of value the long-term growth rate of the underlying value of the discounted Growth Optimal Portfolio (GOP) can be expected
+to correspond to the long-term net growth rate of the world economy. According to historical records we assume in
+the long term, as a first approximation, that the world economy has been growing exponentially. Such exponential
+growth will now be postulated for the discounted Growth Optimal Portfolio (GOP) drift. The following assumption leads us to the stylized
+version of the MMM.\\
+\begin{assumption}\cite[pg.~8]{guo2011small}\label{assumption421}
+% \normalfont
+% \end{assumption}
+% \textbf{Assumption 13.2.1}  \emph{
+The discounted Growth Optimal Portfolio (GOP) drift is an exponentially growing function of time.
+\end{assumption}
+
+Note that this assumption can be considerably weakened and made more flexible.
+To satisfy Assumption \ref{assumption421}, let us model the discounted Growth Optimal Portfolio (GOP) drift $\alpha_t^{\delta\star}$ as an exponential function of time of the
+form
+
+\begin{equation}\label{13.2.1}
+\alpha_t^{\delta\star} = \alpha_0\exp\{\eta t\}~~\mbox{  for  }~t\in[0,\infty).
+\end{equation}
+In this equation we have as parameters, a nonnegative initial value $\alpha_0>0$ and a constant net growth rate $\eta>0$. Note
+that the initial value parameter $\alpha_0$ depends on the initial date and also on the initial value of the discounted Growth Optimal Portfolio (GOP).\\
+By equations \eqref{13.2.0} and \eqref{13.2.1} the underlying value at time t satisfies under the given parameterization the equation
+
+
+\begin{equation}\label{13.2.2}
+\varphi(t) = \frac{\alpha_0}{4}\int_0^t\exp\{\eta z\}dz
+\end{equation}
+
+for $t \in [0,\infty)$. This demonstrates that the transformed time and the underlying value evolve asymptotically for long time periods in an exponential manner. More precisely, one obtains for the transformed time the explicit expression
+
+
+\begin{equation}\label{13.2.3}
+\varphi(t) = \frac{\alpha_0}{4\eta}(\exp\{\eta t\} - 1).
+\end{equation}
+
+\subsection*{Normalized Growth Optimal Portfolio (GOP)}
+The formulation \eqref{13.2.1} suggests that one should examine for the feedback effect in the dynamics of the market index that drives its value back to its long term exponentially growing average of the normalized Growth Optimal Portfolio (GOP)
+\begin{equation}\label{13.2.4}
+Y_t = \frac{\bar{S}_t^{\delta_\star}}{\alpha_t^{\delta_\star}}~~\mbox{  for  }~t\in[0,\infty).
+\end{equation}
+
+By application of the Ito formula and using \eqref{13.1.5}  and \eqref{13.1.6}, we obtain for this case the SDE
+
+
+\begin{equation}\label{13.2.5}
+dY_t = (1-\eta Y_t)dt+\sqrt{Y_t}dW_t
+\end{equation}
+for $t\in[0,\infty)$ with
+
+
+\begin{equation}\label{13.2.6}
+Y_0 = \frac{\bar{S}_0^{\delta_\star}}{\alpha_0},
+\end{equation}
+
+where $Y$ is a square root (SR) process.\\
+The above stylized version of the MMM is an economically based, parsimonious model for the dynamics of the
+discounted Growth Optimal Portfolio (GOP). We remark that we would still obtain the above type of SDE for $Y_t$ if $\eta$ were a stochastic process.\\
+This is important for extended versions of the MMM.\\
+\par By using the SR process $Y = \{Y_t,~t\in[0,\infty)\}$ and \eqref{13.2.5}, the discounted Growth Optimal Portfolio (GOP) $\bar{S}_t^{\delta_\star}$ can be expressed in the form 
+
+
+\begin{equation}\label{13.2.7}
+\bar{S}_t^{\delta_\star} = Y_t\alpha_t^{\delta_\star}
+\end{equation}
+
+for $t\in[0,\infty)$. This leads us to a useful description of the Growth Optimal Portfolio (GOP) when expressed in units of the domestic currency given by 
+
+\begin{equation}\label{13.2.8}
+\bar{S}_t^{\delta_\star} = S_t^0\bar{S}_t^{\delta_\star} = S_t^0 Y_t\alpha_t^{\delta_\star}
+\end{equation}
+for $t\in[0,\infty)$. For the above model of the discounted Growth Optimal Portfolio (GOP) one needs only to specify the initial values $\bar{S}_0^{\delta_\star}$ and $\alpha_0$ and the net growth rate process $\eta$. Note that $\alpha_0$ and $\bar{S}_0^{\delta_\star}$ are linked through \eqref{13.2.6}. Consequently, one can say that the stylized MMM assumes that the discounted Growth Optimal Portfolio (GOP) is the product of an SR process and exponential function.\\\\
+The resulting model for the discounted Growth Optimal Portfolio (GOP) with constant net growth rate $\eta$ is called the stylized version of the
+MMM, which was originally proposed in Platen (2001).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{European option prices under the MMM}
+\noindent
+\par Without loss of generality we will consider European option prices at time $t = 0$. It is shown that under the MMM, the European call option price $C$, denominated in units of the domestic currency, is given by 
+
+
+
+\begin{equation}\label{neww1}
+C(K,T) = S\mathbb{E}\bigg[\frac{(S_T - K)_+}{S_T}\bigg|S_0 = S\bigg],~~0<S,K<\infty,~~0\leq T\leq \infty
+\end{equation}
+where $X_+ = \max(X, 0)$, $S$ is the current index price, $K$ the strike, and $T$ the time to expiry.
+Note that no equivalent risk neutral measure exists in the MMM and $E$ is taken directly
+under the measure $P$, more explicitly, the MMM call price can be
+written as
+\begin{equation}\label{neww2}
+C(K,T) = S\tilde{\chi}^2(y;4,x) - Ke^{-rT}\tilde{X}^2(y;0,x)
+\end{equation}
+where 
+
+\begin{equation}\label{neww3}
+\left\{
+\begin{split}
+x& = \frac{S}{\varphi(T)},~~y = \frac{Ke^{-rT}}{\varphi(T)},~~\varphi(T) = \frac{\alpha}{4\eta}(e^{\eta T - 1}),~~\alpha,\eta>0,\\
+\tilde{\chi}^2(y;\delta,x)& = 1-\chi^2(y;\delta,x),~~\delta\geq 0,\\
+\chi^2(y;\delta,x) & = \int_0^yp(z;\delta,x)dz,~~\delta>0,~\chi^2(y;0,x) = e^{\rfrac{-z}{2}}+\int_0^yp(z;0,x)dz,\\
+p(y;\delta,x) & = \frac{1}{2}\bigg(\frac{y}{x}\bigg)^{\rfrac{(\delta-2)}{4}}\exp\bigg(-\frac{x+y}{2}\bigg)I_{\rfrac{\delta-2}{2}(\sqrt{xy})},
+\end{split}
+\right.
+\end{equation}
+
+and $I_v(\cdot)$ is the modified Bessel function of the first kind with index $v$. For nonnegative $y,\delta,$ and $x$, the function $\chi^2(y; \delta, x)$ denotes the cumulative
+distribution function, evaluated at $y$, of a noncentral chi-square random variable with $\delta$ degrees of freedom and noncentrality parameter $x$, it is also shown that the European put price $P$ and zero coupon bond price $Z$ are respectively given by
+\begin{align}
+P(K,T)& = Ke^{-rt}(\chi^2(y;0,x) - e^{\rfrac{-x}{2}}) - S\chi^2(y;4,x),\label{neww4}\\
+\end{align}
+and the following put-call parity relation holds:
+\begin{equation}\label{neww6}
+C(K,T)+KZ(T) = P(K,T)+S,
+\end{equation}
+where\\
+$C~\Rightarrow~ $ European call option price $C$,\\
+$K~\Rightarrow~ $ Strike price,\\
+$T~\Rightarrow~ $ Time to expiry,\\
+$Z~\Rightarrow~ $ Zero coupon bond,\\
+$P~\Rightarrow~ $ European put price.
+
+%page 4 put call varity
+\begin{definition}[\textbf{Implied volatility in the MMM}]\label{4.1}
+\normalfont
+Implied Volatility is the parameter estimate obtained by inserting the Black-Scholes model on market data under the MMM, the implied volatility is defined as the unique nonnegative function $(K,T)\mapsto\phi(K,T)$ satisfying the equation
+\begin{equation}\label{4.10}
+C(K,T) = C_{BS}(K,T;\phi(K,T))~~\forall~~K,T\in(0,\infty),
+\end{equation}
+where $C_{BS}(K,T;\phi(K,T))$ is the Black-Scholes price of a call option with strike $K$ and maturity $T$ and $C(K,T)$ is the price in the market.\\
+For $0 < T < \infty,$ the existence and uniqueness of the implied volatility $\phi$ is guaranteed
+by the implicit function theorem. To see this, let $J = C(K, T) - C_{BS}(K, T; v)$. Then the
+Jacobian determinant $|J_v| = \partial_vC_{BS}(K, T; v) = S_n(d_1(K,T;v))\sqrt{T}$ is strictly positive for all $0 < T < \infty$. However, as $T \rightarrow 0$ or $T \rightarrow \infty,$ the Jacobian determinant becomes zero. So it is not apparent that the implied volatility possesses a limit in small time, by which we mean $\lim_{T\rightarrow0}\phi,$ or a limit in large time, by which we mean $\lim_{T\rightarrow\infty}\phi.$
+\end{definition}
+\begin{remark}\label{R1}
+\normalfont
+For any finite $T > 0$, the existence and uniqueness of the implied volatility can
+also be deduced by using the general arbitrage bounds for call price and the monotonicity
+of $C_{BS}(K, T; v)$ in $v;$\\% see Section 4 below.
+ We omit arbitrage bounds in the definition of the
+implied volatility because they are automatically satisfied by the MMM call price $C$%; see
+%Step (i) of the proof in Section 5
+\end{remark}
+
+\begin{theorem}\cite[pg.~9]{guo2011small}\label{T4.1}
+Under the MMM, the implied volatility has the small time limit
+\begin{equation}\label{4.11}
+\lim_{T\rightarrow 0}\phi(K,T) = \frac{\sqrt{\alpha}\ln(S/K)}{2(\sqrt{S} - \sqrt{K})},~~K\in(0,\infty).
+\end{equation}
+\end{theorem}
+\begin{remark}
+\normalfont
+This theorem makes clear that the risk-free rate does not affect the implied volatility in
+the small time limit. It confirms the intuition that the time value of money diminishes in
+infinitesimal time spans and thus has negligible bearing on the option price.
+\end{remark}
+%%%page 9
+
+\subsection*{The General Market Model and the Extended Roper-Rutkowski formula}
+\noindent
+\par Under the assumption of zero risk-free interest rate and some minimal conditions on the
+call option prices, Roper and Rutkowski derived a model-free zeroth order asymptotic formula for the implied volatility in small time. We extend their formula to markets with nonzero dividend yields and interest rates. Since bond prices can be parametrized by risk-free interest rates, we will,
+instead of specifying a risk-free rate, introduce a risk-free zero coupon bond into the Roper-Rutkowski setup. We will derive the extended formula by applying a well-known forward
+price transform. After the variable change, it will become clear that the Roper-Rutkowski
+proof can be repeated here almost line by line.\\ %For this reason we will only sketch our proof of the result.
+For ease of referencing we shall call our setup a general market model (GMM). Consider
+a market that has a continuum of zero coupon bond prices and call option prices for an asset.
+Without loss of generality we study the market at time $t = 0$.  Let the constant dividend
+yield be $k\in\mathbb{R}$ and current asset price $S > 0$. For the bond price function $T \mapsto Z(T)$ we
+have the following assumptions.
+\begin{assumption}\cite[pg.~10]{guo2011small}\label{as1}
+The bond price $Z:[0,\infty)\rightarrow (0,1]$ satisfies the following conditions.
+\begin{enumerate}
+\item[(Z1)] No arbitrage bounds:
+\begin{equation}\label{neww13}
+0<Z(T)\leq 1,~\forall~ T\in [0,\infty).
+\end{equation}
+\item[(Z2)] Convergence to payoff:
+\begin{equation}\label{neww14}
+\lim_{T\rightarrow 0}Z(T) = Z(0) = 1.
+\end{equation}
+\item[(Z3)] Time value of money:
+\begin{equation}\label{neww15}
+T\mapsto Z(T)~~\mbox{   is nonincreasing}. 
+\end{equation}
+For the call prices $(K,T)\mapsto C(K,T)$ the following conditions are also assumed.
+\end{enumerate}
+\end{assumption}
+\begin{assumption}\cite[pg.~10]{guo2011small}\label{as2}
+The call price $C:(0,\infty)\times [0,\infty)\rightarrow[0,\infty)$ fulfils the following conditions:
+\begin{enumerate}
+\item[(C1)] No arbitrage bounds:
+\begin{equation}\label{neww16}
+(Se^{-kT} - KZ(T))_+\leq C(K,T)\leq Se^{-kT},~~\forall~ S,K>0,~T\geq 0.
+\end{equation}
+\item[(C2)] Convergene to payoff:
+\begin{equation}\label{neww17}
+\lim_{T\rightarrow0}C(K,T) = C(K,0) = (S-K)_+.
+\end{equation}
+\item[(C3)] Time value of the option:
+\begin{equation}\label{neww18}
+T\mapsto C(K,T) ~~\mbox{  is nondecreasing}.
+\end{equation}
+\end{enumerate}
+\end{assumption}
+If we set $k=0$ and $Z(T) \equiv 1$ in the setup above, then we recover the zero dividend yield and zero interest rate setup of Roper and Rutkowski. With some abuse of notation we can now define implied volatility for the GMM.
+
+
+
+
+\begin{proof}\cite[pg.~10]{guo2011small}
+This is carried out in the following steps:
+
+%%% wahala dey here oooooooo
+\begin{enumerate}
+\item[(i)] verification of Assumptions \ref{as1} and \ref{as2};
+\item[(ii)] computation of the at the money limit;
+\item[(iii)] computation of the out of the money limit;
+\item[(iv)] computation of the in the money limit
+\end{enumerate}
+Note that the dividend yield $k = 0$ in the $MMM;$\\
+\textbf{Step (i): Verification of Assumptions \ref{as1} and \ref{as2}:} It is easy to verify that the bond price $Z$ satisfies Assumption \ref{as1}. We omit the details.\\
+To verify Assumption \ref{as2}
+$$
+(S - Ke^{-rT}(1-e^{-x/2}))_+\leq C(K,T)\leq S,~~\forall~~ S,K>0,~T\geq 0.
+$$
+Since $\chi^2(y;4,x)$ and $\chi^2(y;0,x)$  are distributions, \eqref{neww2} implies that $C(K, T) \leq S$ for all $K > 0$ and $T \geq  0.$ This proves the upper bound for $C.$ To derive the lower bound we will
+check two cases. When $S \leq Ke^{-rT} ~(1 - e^{-x/2}),$ we need $C \geq 0$. This is obviously true
+considering that in \eqref{neww1} the payoff function is nonnegative and $S_T$ is a nonnegative process.\\
+When $S > Ke^{rT}(1 -  e^{-x/2})$, the lower bound in \eqref{9.1.16} can be derived by noting that $x/y\leq
+[\chi^2(y; 0, x) - e^{x/2}]/\chi^2(y; 4, x),$ which holds for all $S, K > 0$ and $T \geq 0$. So $C$ satisfies \eqref{9.1.16}.\\
+
+\par Next, $C$ also satisfies condition \eqref{9.1.17} by the continuity and the Markov property of the
+diffusion $S_T$.\\
+
+\par Moreover, simple differentiation gives
+
+\begin{equation}\label{32}
+C_T(K,T) = -2Sx_Tp(y;4,x)/x+rKe^{-rT}\tilde{\chi}^2(y;0,x).
+\end{equation}
+This implies that $C_T(K,T)\geq 0$ for all $K,T\in(0,\infty)$ because $x_T/x = -\eta e^{\eta T}/(e^{\eta T}-1)$, and the ensity $p(y;\delta,x)$ and the distribution $\tilde{\chi}^2$ are nonnegative. So \eqref{9.1.18} is also  satisfied by $C$.\\
+
+\par In sum, $C$ satisfies all the conditions \eqref{9.1.16}-\eqref{9.1.18} in Assumption \ref{as2}.\\
+
+\textbf{Step (ii): At the money small time limit:} When $K = S$, the time limit in (11) becomes
+
+\begin{equation}\label{33}
+\bigg[\lim_{T\rightarrow 0}\phi(K,T)\bigg]_{K = S} = \lim_{K\rightarrow S}\frac{\sqrt{\alpha}\ln(S/K)}{2(\sqrt{S} - \sqrt{K})} = \sqrt{\frac{\alpha}{S}}, ~~ S\in(0,\infty).
+\end{equation}
+For $K = S$, the extended Roper - Rutwoski formula (19) gives 
+$$
+\phi(S,T)~\sim\sqrt{2\pi}\frac{C(S,T)}{S\sqrt{T}}~~(T\rightarrow 0).
+$$
+When $K = S,C(S,T)\stackrel{T\rightarrow 0}{\longrightarrow}0$. So L'Hopital's rule implies that 
+$$
+\lim_{T\rightarrow 0}\sqrt{2\pi}\frac{C(S,T)}{S\sqrt{T}} = \lim_{T\rightarrow 0}\sqrt{2\pi}\frac{C_T(S,T)}{S/(2\sqrt{T})} = \lim_{T\rightarrow 0}\frac{2\sqrt{2\pi}}{S}\sqrt{T}C_T(S,T),
+$$
+provided the last limit exists. Recalling that $C_T$ is given by \eqref{32} and taking note that $\sqrt{T}\tilde{X}^2(y;0,x)\stackrel{T\rightarrow 0}{\longrightarrow}0,~[x_T\sqrt{T}p(y;4,x)/x]_{K = S}\stackrel{T\rightarrow 0}{\longrightarrow}-\sqrt{\alpha/S}/(4\sqrt{2\pi})$, we get the at the money small time limit
+
+$$
+\lim_{T\rightarrow 0}\phi(S,T) = \lim_{T\rightarrow 0}\frac{2\sqrt{2\pi}}{S}\sqrt{T}C_T(S,T) = -4\sqrt{2\pi}\lim_{T\rightarrow 0}\bigg[\sqrt{T}\frac{x_T}{x}p(y;4,x)\bigg]_{K = S} = \sqrt{\frac{\alpha}{S}}.
+$$
+
+\textbf{Step (iii): Out of the money small time limit:} In this case \eqref{neww6}  gives
+$$
+\lim_{T\rightarrow 0}\phi(K,T) = \lim_{T\rightarrow 0}\bigg\{\frac{|\ln(S/K)|}{-2T\ln[C(K,T) - (S-KZ(T))_+]}\bigg\}^{\rfrac{1}{2}}
+$$
+Since $S<K,(S-KZ(T))_+ = 0$ for all sufficiently small $T$. Consequently
+
+\begin{equation}\label{34}
+\lim_{T\rightarrow 0}\{-2T\ln[C(K,T) - (S-KZ(T))_+]\} = \lim_{T\rightarrow 0}\{-2T\ln[C(K,T)]\}.
+\end{equation}
+Since $TC_T$ also tends to zero as $T\rightarrow 0$, applying $L'$Hopital's rule twice gives
+$$
+\lim_{T\rightarrow 0}\{-2T\ln C\} = -2\lim_{T\rightarrow 0}\frac{\ln C}{T^{-1}} = 2\lim_{T\rightarrow 0}\frac{T^2C_{TT}}{C_T}
+$$
+provided the last limit exists. It can be shown by straightforward calculation that
+$$
+T^2\frac{C_{TT}}{C_T} = T^2\frac{1}{R_1}(R_2+R_3+R_4+R_5),
+$$
+where
+\begin{align*}
+R_1& = 1 - \frac{rKe^{-rT}x\tilde{\chi}^2(y;0,x)}{2Sx_Tp(y;4,x)}\\
+R_2& = -\frac{\eta}{e^{\eta T} - 1},\\
+R_3& = \frac{1}{2}\bigg[\frac{p(y;2,x)}{p(y;4,x)} - 1\bigg]y_T+\frac{1}{2}\bigg[\frac{p(y;6,x)}{y;4,x} - 1\bigg]x_T\\
+R_4& = \frac{r^2 Ke^{-rTx\tilde{\chi}^2(y,0,x)}}{2Sx_Tp(y;4,x)},\\
+R_5& = \frac{rKe^{-rT}(e^{\eta T} - 1)}{2S\eta}\bigg[\frac{-p(y;0,x)}{p(y;4,x)}y_T+\frac{-p(y;2,x)}{p(y;4,x)}x_T\bigg]
+\end{align*}
+Then the properties of the chi-square distributions imply that $R_1\stackrel{T\rightarrow 0}{\longrightarrow} 1; ~T^2R_2, R_4,~T^2R_5\stackrel{T\rightarrow 0}{\longrightarrow}0;$ and $T^2R_3\stackrel{T\rightarrow 0}{\longrightarrow}2(\sqrt{S} - \sqrt{K})^2/\alpha$. From these asymptotics the out of the money small time limit follows.\\
+
+\textbf{Step (iv): In the money small time limit:} When $S>K$, \eqref{neww6} gives
+$$
+\lim_{T\rightarrow 0}\phi(K,T) = \lim_{T\rightarrow 0}\frac{|\ln(S/K)|}{\{-2T\ln[C(K,T) - (S-KZ(T))_+]\}^{\rfrac{1}{2}}}
+$$
+Since $S>K,~ (S-KZ(T))_+ = S-KZ(T)$ for all sufficiently small $T$. As a result
+
+\begin{equation}\label{35}
+\begin{split}
+\lim_{T\rightarrow 0}\phi(K,T)& = \lim_{T\rightarrow 0}\frac{|\ln(S/K)|}{\sqrt{-2T\ln[C(K,T) - S + KZ(T)]}}\\
+& = \lim_{T\rightarrow 0}\frac{|\ln(S/K)|}{\sqrt{-2T\ln[P(S,T)]}},
+\end{split}
+\end{equation}
+where the second equality above results from the put-call parity (6). Since $P(K,T)\stackrel{T\rightarrow 0}{\longrightarrow}(K-S)_+ = 0$ for $S>K$ and $TP_T\stackrel{T\rightarrow 0}{\longrightarrow}0$, we apply $L'$Hopital's rule twice to get
+
+\begin{equation}\label{36}
+\lim_{T\rightarrow 0}\{-2T\ln P\} = 2\lim_{T\rightarrow 0}\frac{\ln P}{T^{-1}} = 2\lim_{T\rightarrow 0}\frac{T^2P_{TT}}{P_T}
+\end{equation}
+provided the last limit exists. By the put-call parity (6), we have
+$$
+P_T = C_T+KZ_T~~\mbox{  and  } P_{TT} = C_TT+KZ_{TT}.
+$$
+By using these two identities and the chi-square distributions, it can be shown that
+\begin{align*}
+&\frac{P_T}{-2Sx_Tp(y;4,x)/x}\stackrel{T\rightarrow 0}{\longrightarrow}1,\\
+&\frac{T^2P_{TT}}{-2Sx_Tp(y;4,x)/x}\stackrel{T\rightarrow 0}{\longrightarrow} 2(\sqrt{S} - \sqrt{K})^2/\alpha.
+\end{align*}
+%\end{equation}
+By these two \eqref{35} and \eqref{36},
+$$
+\lim_{T\rightarrow 0}\phi(K,T) = \frac{\sqrt{\alpha}\ln(S/K)}{2(\sqrt{S} - \sqrt{K})},~~~S,K\in(0,\infty),~~S>K
+$$
+This completes both the proof for the in the money case and the proof of the theorem.
+\end{proof}
+
+\begin{theorem}\cite[pg.~11]{guo2011small}
+Under the MMM, the implied volatility has the large time limit
+%\end{theorem}
+\begin{equation}\label{12}
+\lim_{T\rightarrow \infty}\phi(K,T) = \sqrt{2(3-2\sqrt{2})(r+\eta)},~~~K\in (0,\infty).
+\end{equation}
+\end{theorem}
+As a result of this large time limit, the MMM implied volatility in the long run is
+determined by the risk-free rate $r$ and the net growth rate $\eta$ of the growth optimal portfolio
+of the market. This is not surprising given that the (long term) increases in the index and
+option prices are dictated by these two rates.
+\begin{proof}
+We shall prove the large time limit\\
+$\lim_{T\rightarrow \infty}\phi(K,T) = v_\star\equiv S\sqrt{2(3-2\sqrt{2})(r+\eta)}$.\\
+Having determined its large time convergence, we now show how to obtain the desired
+limit $v_\star$ by bounding the implied volatility in the interval $(0,\sqrt{2(r+\eta)})$.\\
+Throughout this proof, the parameter $v$ is assumed to be in $(0,\sqrt{2(r+\eta)})$. Given such a $v$, the Black-Scholes and the MMM call prices can be written as
+%\end{proof}
+\begin{equation}\label{37}
+\left\{
+\begin{split}
+C_{BS}(K,T;v)& = S-S\mathcal{R}_{BS}(K,T;v),\\
+C(K,T)& = S-S\mathcal{R}(K,T),
+\end{split}
+\right.
+\end{equation}
+where $\mathcal{R}_{BS}$ and $\mathcal{R}$ are given by
+
+\begin{equation*}%\label{}
+\left\{
+\begin{split}
+\mathcal{R}_{BS}(K,T;v)& = \tilde{N}(d_1(K,T;v))+\frac{K}{S}e^{-\hat{r}T} - \frac{K}{S}e^{-\hat{r}T}\tilde{N}(d_2(K,T;v)),\\
+\mathcal{R}(K,T)& = \frac{K}{S}e^{-rT}+\chi^2(y;4,x) - \frac{K}{S}e^{-rT}\chi^2(y;0,x) 
+\end{split}
+\right.
+\end{equation*}
+Next, define $\underline{\mathcal{R}}$ and $\overline{\mathcal{R}}$ to be 
+
+\begin{align*}
+\underline{\mathcal{R}}(K,T)& = e^{(r+\eta)T -(x+y)/2}\frac{y^2}{4}\bigg[\frac{1}{2}+\frac{xy}{24}+\frac{(xy)^2}{768}\bigg] - \frac{K}{S}e^{\eta T - x/2}\bigg[\frac{xy}{4}+(xy)^2\bigg],\\
+\overline{\mathcal{R}}(K,T)& = e^{(r+\eta)T -x/2}\frac{y^2}{4}\bigg[\frac{1}{2}+\frac{xy}{24}+(xy)^2\bigg] - \frac{K}{S}e^{\eta T - (x+y)/2}\bigg[\frac{xy}{4}+\frac{(xy)^2}{64}\bigg].
+\end{align*}
+By using the properties of the chi-square and normal distributions, it can be shown that for
+sufficiently large $T$,
+\begin{equation}\label{38}
+\frac{K}{S}e^{-[\hat{r} - (r+\eta)]T}+\underline{R}(K,T)\leq e^{r+\eta}\mathcal{R}(K,T)\leq \frac{K}{S}e^{-[\hat{r} - (r+\eta)]T}+\overline{R}(K,T)
+\end{equation}
+\begin{align}
+\underline{R}(K,T) &= -\frac{2\eta^2K^2}{\alpha^2}e^{-(r+\eta)T}-\frac{760SK^3\eta^4}{3\alpha^4}e^{-2(r+\eta)T - \eta T}+O(e^{-3(r+\eta)T-2\eta T})\label{39}\\
+\overline{R}(K,T) &= -\frac{2\eta^2K^2}{\alpha^2}e^{-(r+\eta)T}-\frac{4SK^3\eta^4}{3\alpha^4}e^{-2(r+\eta)T - \eta T}+O(e^{-3(r+\eta)T-2\eta T})\label{40}
+\end{align}
+and
+
+
+\begin{equation}\label{41}
+e^{r+\eta}T\mathcal{R}_{BS}(K,T;v) = \frac{K}{S}e^{-[\hat{r} - (r+\eta)]T}  - \frac{2K\eta}{\alpha}\frac{v\sqrt{T}}{(d_2+v\sqrt{T})d_2\sqrt{2\pi}}e^{-d_2^2/2}+\frac{2K\eta}{\alpha}n(d_2)O(d_2^{-3}),
+\end{equation}
+where $d_2 - d_2(K,T;v)$. Similarly, it can be shown that for all large enough $T$,
+
+\begin{equation}\label{42}
+\left\{
+\begin{split}
+&\frac{1}{2}d_2^2(K,T;v) - (r+\eta)T>c_1T,~~~\mbox{  if  }~~ v\in (0,v_\star),\\
+&\frac{1}{2}d_2^2(K,T;v) - (r+\eta)T<-c_2T,~~~\mbox{  if  }~~ v\in (v_\star,\sqrt{2(r+\eta)}),
+\end{split}
+\right.
+\end{equation}
+where $c_1$ and $c_2$ are some strictly positive constants dependent only on $K, S, v, r, \eta$. Combining \eqref{38}-\eqref{42} then gives the following inequalities:
+\begin{enumerate}
+\item[(a)] If $v\in(0,v_\star)$, then for sufficiently large $T$
+$$
+e^{(r+\eta)T}\mathcal{R}_{BS}(K,T;v)\geq\frac{K}{S}e^{-[\hat{r} - (r+\eta)]T}+\overline{\mathcal{R}}(K,T)\geq e^{(r+\eta)T}\mathcal{R}(K,T);
+$$
+\item[(b)] If $v\in (v_\star,\sqrt{2(r+\eta)})$, then for sufficiently large $T$,
+$$
+e^{(r+\eta)T}\mathcal{R}_{BS}(K,T;v)\leq\frac{K}{S}e^{-[\hat{r} - (r+\eta)]T}+\underline{\mathcal{R}}(K,T)\leq e^{(r+\eta)T}\mathcal{R}(K,T);
+$$
+\end{enumerate}
+By these inequalities, \eqref{37}, and the equality that $C(K,T) = C_{BS}(K,T;\phi(K,T))$, we get
+\begin{equation*}
+\left\{
+\begin{split}
+&C_{BS}(K,T;v)\leq C(K,T) = C_{BS}(K,T;\phi(K,T)),~~\mbox{  if  }~~v\in (0,v_\star);\\
+&C_{BS}(K,T;v)\geq C(K,T) = C_{BS}(K,T;\phi(K,T)),~~\mbox{  if  }~~v\in (v_\star,\sqrt{2(r+\eta)}).
+\end{split}
+\right.
+\end{equation*}
+As the function $v\rightarrow C_{BS}(K,T;v)$ is monotonically increasing in $v$, we have, for each $K$,
+\begin{equation*}
+\left\{
+\begin{split}
+&\phi(K,T)\geq v,~~\mbox{  if  }~~ v\in(0,v_\star),\\
+&\phi(K,T)\leq v,~~\mbox{  if  }~~ v\in(v_\star,\sqrt{2(r+\eta)}),
+\end{split}
+\right.
+\end{equation*}
+for all sufficiently large $T$. This implies that
+$$
+\lim_{T\rightarrow\infty}\inf\phi(K,T)\geq v_\star~~\mbox{  and  }~~\lim_{T\rightarrow\infty}\sup\phi(K,T)\leq v_\star.
+$$
+As a result,
+$$
+\lim_{T\rightarrow \infty}\phi(K,T) = v_\star = \sqrt{2(3 - 2\sqrt{2})(r+\eta).}
+$$
+And the proof is complete.
+%\end{enumerate}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{CONCLUSION}
+\noindent
+% \par The Minimal Market Model epitomizes the methodology of bottom-up market modeling, which offers a new perspective on markets. Furthermore, the MMM is an explicit, coherent specification of the market essence and presentable in a formal way. We elaborated on the economic challenges of ephemeral markets and proposed the MMM to tackle these challenges.\\
+
+% \par The presented theoretical approach will be implemented in the project and there be examined and tested in several applications. This will lead to refinement of this methodology and further research into its qualities and potentials. We will have to take a much closer look at the connection between the theoretical level and the practical details.
+% Moreover, we will elaborate on the systematic transition from the abstraction to concrete markets. We will, in particular, look at the integration of matching and allocation processes into market models. This effort includes the elaboration on information revelation. Making progress in this aspect would enhance the representation capabilities for auctions. Since the minimality in representation eliminates redundancy within the MMM, the information content is very dense. So, a wealth of contained information can be derived from the resulting market movies. This information extraction will also be subject to future research.
+
+\par The Minimal Market Model epitomizes the methodology of bottom-up
+market modeling, which offers a new perspective on markets. Furthermore,
+the MMM is an explicit, coherent specification of the market essence and
+presentable in a formal way. We elaborated on the economic challenges of
+ephemeral markets and proposed the MMM to tackle these challenges.\\
+
+\par We calculated both the small and large time limits for the implied volatility in the MMM. Although only the zeroth order asymptotics are proven, it appears likely that higher order time expansions can be achieved in a similar manner.
+
+
+
+
+
+
+
+
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{equation}\label{}
+%
+%\end{equation}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+%
+%\begin{definition}[\textbf{}]\label{}
+%\normalfont
+%
+%\end{definition}
+
+%\end{document}
+
+
+
+
+
+
+
+
+
+
+\bibliography{Odun799}
+\nocite{*}
+\bibliographystyle{apacite}
+\end{document}
